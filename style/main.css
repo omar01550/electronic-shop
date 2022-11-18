@@ -1,0 +1,396 @@
+:root{
+   --main-color:blue;
+   --text-color:black;
+}
+
+/* fonts */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900;1000&display=swap');
+
+*{
+   padding:0;
+   margin:0;
+   box-sizing: border-box;
+   scroll-behavior: smooth;
+}
+
+body{
+   font-size: 16px;
+   font-family: Cairo;
+}
+
+ul{
+   list-style: none
+}
+
+a{
+   text-decoration: none;
+}
+
+
+/* classes  */
+.container{
+   padding-left: 100px;
+   padding-right: 100px ;
+}
+
+.active-link{
+   color: var(--main-color);
+}
+
+.section-title{
+   text-align: center;
+   font-weight: bold;
+   font-size: 2rem;
+   text-transform: uppercase;
+   padding-top: 20px;
+}
+
+.hidden{
+   display: none;
+}
+/* classes */
+
+/* navbar */
+
+header{
+   border-bottom: 1px solid #f0f0f0;
+
+}
+
+nav{
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+    padding-top:10px;
+    padding-bottom: 10px;
+}
+
+header nav > ul{
+    width:50%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+header nav ul{
+   position: relative;
+}
+
+header nav ul li:hover a{
+    color:var(--main-color);
+    cursor: pointer;
+}
+
+header nav ul li:hover .product-types{
+    display: flex;
+}
+
+header nav ul li a{
+   color: var(--text-color);
+   font-size: 1.2rem;
+}
+
+
+/* product -types */
+ul.product-types{
+     padding:10px;
+     background-color: white;
+     color: var(--text-color);
+     display: none;
+     flex-direction: column;
+     position: absolute;
+     left: 40%;
+     bottom: -530%;
+     box-shadow: 2px 2px 2px 2px #f0f0f0;
+     min-width:200px;
+
+}
+
+ul.product-types li{
+   margin-top:20px;
+}
+
+.header-right{
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+   font-size:1.3rem;
+}
+
+.header-right span.cart-title{
+    font-size: 1rem;
+}
+
+
+.fa-search{
+   margin-right:  30px;
+}
+.fa-cart-shopping{
+   cursor: pointer;
+}
+.logo{
+   text-transform: uppercase;
+   color: var(--main-color);
+   font-weight: bold;
+   font-size: 1.6rem;
+}
+
+.menu-toggler{
+   display: none;
+   cursor: pointer;
+   font-size:1.3rem;
+}
+
+/* header media */
+@media (max-width:767px) {
+     .container{
+        padding-left: 10px;
+        padding-right: 10px;
+  }
+
+  /* main ul */
+  header nav > ul{
+     display: none;
+  }
+
+  .cart-title{
+     display: none;
+  }
+
+  .menu-toggler{
+     display: block;
+  }
+  .fa-search{
+     margin-right: 10px;
+  }
+}
+/* header media */
+
+/* end navbar */
+
+/* home section */
+section.home{
+  width: 100%;
+  min-height: 80vh;
+  background-image: url('../puplic/images/offer10.jpg');
+  backgrou`nd-repeat: no-repeat;
+  background-size: cover
+
+
+}
+
+/*end home section */
+.categories{
+   width: 100%;
+   min-height: 60vh;
+   display: flex;
+   justify-content: center;
+}
+
+
+.categories .image{
+   position: relative;
+   height: 400px;
+   cursor: pointer;
+   overflow: hidden;
+   margin: 0;
+}
+
+.categories .image:hover img{
+    transform: scale(1.1);
+
+
+
+}
+
+.categories img{
+   width: 100%;
+   transition: 500ms ease-in-out;
+
+}
+
+.categories .image .overlay{
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   color: white;
+   flex-direction: column;
+   text-transform: capitalize;
+   font-size:1.3rem;
+   z-index:1000;
+   background-color: rgba(0,0,0,0.3);
+}
+
+.categories .image .overlay a{
+   color: white;
+   font-size: 1rem;
+}
+
+.left-images{
+   display: flex;
+   justify-content: ;
+   flex-direction: column;
+   width: 50%;
+}
+
+.left-images .image{
+   width: 100%;
+   height:200px;
+   overflow: hidden;
+   padding: 0;
+}
+
+.left-images .image img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin:0;
+
+}
+
+
+/* start popular mobiles */
+ .popular-mobiles{
+    width: 100%;
+    position: relative;
+ }
+
+ .popular-mobiles .container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 50px ;
+    padding-bottom: 50px;
+    overflow: scroll;
+    position: relative;
+ }
+
+ .arrow{
+     position: absolute;
+     cursor: pointer;
+     font-size: 2rem;
+      top: 50%;
+      z-index: 100000;
+ }
+
+
+
+     .arrow-left{
+        left:50px;
+        z-index: 10000;
+     }
+
+     .arrow-right{
+        right:50px;
+        z-index: 10000;
+     }
+
+.popular-mobiles .container .mobile{
+    width:300px;
+    min-height: 500px;
+    position: relative;
+    margin:30px;
+    cursor: pointer;
+    transition: 300ms;
+  }
+
+ .popular-mobiles .container .mobile:hover{
+      box-shadow: 2px 2px 2px 2px #f0f0f0,-2px -2px 2px 2px #f0f0f0;
+      transform: scale(1.1);
+ }
+  .popular-mobiles .container .mobile img{
+      width: 300px;
+      height: 300px;
+  }
+
+  .details{
+     text-align: center;
+
+  }
+
+  .details span,small{
+     display: block;
+  }
+  .details h1{
+        font-weight: bold;
+        text-transform: uppercase;
+
+  }
+
+  .details .brand{
+     color: grey;
+  }
+
+  .details .add-to-cart{
+     width: 100%;
+     background-color: var(--main-color);
+     color: white;
+     padding: 15px 0;
+     margin-top: 20px;
+     border:none;
+     display: flex;
+     justify-content: space-around;
+     align-items: center;
+     font-size:1.5rem;
+     cursor: pointer;
+     position: relative;
+  }
+
+  .add-to-cart:hover{
+     background-color: black
+  }
+
+
+/* end popular mobiles */
+
+
+/* start popular watches  */
+  .popular-watches{
+     width: 100%;
+     position: relative;
+  }
+
+  .popular-watches .arrow{
+       top:70%;
+  }
+
+  .popular-watches > img{
+     width: 100%;
+  }
+
+/* end popular watches  */
+.popular-watches{
+   width: 100%;
+}
+.popular-watches .container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 50px ;
+  padding-bottom: 50px;
+  overflow: scroll;
+  position: relative;
+}
+
+.watch{
+  width:300px;
+  min-height: 500px;
+  position: relative;
+  margin:30px;
+  cursor: pointer;
+  transition: 300ms;
+  margin: 30px;
+}
+
+.popular-watches .container .watch:hover{
+     box-shadow: 2px 2px 2px 2px #f0f0f0,-2px -2px 2px 2px #f0f0f0;
+     transform: scale(1.1);
+}
+ .popular-watches .container .watch img{
+     width: 300px;
+     height: 300px;
+
+ }
