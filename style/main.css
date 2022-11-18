@@ -194,6 +194,7 @@ section.home{
    cursor: pointer;
    overflow: hidden;
    margin: 0;
+   
 }
 
 .categories .image:hover img{
@@ -394,3 +395,27 @@ section.home{
      height: 300px;
 
  }
+
+
+footer{
+    width: 100%;
+  }
+
+  footer .container{
+      padding-top: 90px;
+      padding-bottom: (3)0px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+  }
+
+
+footer .container ul{
+   display: flex;
+   justify-content: space-between;
+}
+
+footer .container ul li{
+   margin-right: 30px;
+}
