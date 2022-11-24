@@ -34,7 +34,10 @@ a{
 }
 
 .active-link{
-   color: var(--main-color);
+   background-color: var(--main-color);
+   color: white;
+   padding:5px 20px;
+   border-radius: 5px;
 }
 
 .section-title{
@@ -47,6 +50,29 @@ a{
 
 .hidden{
    display: none;
+}
+
+.page-title{
+   text-align: center;
+   text-transform: uppercase;
+   font-weight: bold;
+   font-size: 2.3rem;
+   margin-top:30px;
+}
+
+.show-more{
+   padding:10px 20px;
+    border-radius:10px;
+    background-color: var(--main-color);
+    color: white;
+    margin:auto;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top:30px;
+    border: none;
+    font-size: 1.4rem;
+    cursor: pointer;
 }
 /* classes */
 
@@ -77,7 +103,7 @@ header nav ul{
 }
 
 header nav ul li:hover a{
-    color:var(--main-color);
+    
     cursor: pointer;
 }
 
@@ -150,7 +176,23 @@ ul.product-types li{
 
   /* main ul */
   header nav > ul{
-     display: none;
+      flex-direction: column;
+      position: absolute;
+      left:0;
+      top:70px;
+      width:100%;
+      min-height: 50vh;
+      background-color: blue;
+
+
+  }
+
+  header nav > ul li a {
+    color: white;
+  }
+
+  header nav > ul li a:hover{
+     color:gray;
   }
 
   .cart-title{
@@ -194,14 +236,11 @@ section.home{
    cursor: pointer;
    overflow: hidden;
    margin: 0;
-   
+
 }
 
 .categories .image:hover img{
     transform: scale(1.1);
-
-
-
 }
 
 .categories img{
@@ -252,6 +291,15 @@ section.home{
 
 }
 
+@media (max-width:767px) {
+     .categories{
+        flex-direction: column;
+     }
+
+     .left-images{
+        width: 100%
+     }
+}
 
 /* start popular mobiles */
  .popular-mobiles{
@@ -289,7 +337,7 @@ section.home{
         z-index: 10000;
      }
 
-.popular-mobiles .container .mobile{
+ .mobile{
     width:300px;
     min-height: 500px;
     position: relative;
@@ -302,7 +350,7 @@ section.home{
       box-shadow: 2px 2px 2px 2px #f0f0f0,-2px -2px 2px 2px #f0f0f0;
       transform: scale(1.1);
  }
-  .popular-mobiles .container .mobile img{
+   .mobile img{
       width: 300px;
       height: 300px;
   }
@@ -419,3 +467,19 @@ footer .container ul{
 footer .container ul li{
    margin-right: 30px;
 }
+
+
+/* strat mobiles page */
+.mobiles-page,main.page{
+   width: 100%;
+   padding:50px 20px;
+}
+.mobiles-page .products,main.page .products{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+
+/* end mobiles page */

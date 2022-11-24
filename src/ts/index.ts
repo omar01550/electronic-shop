@@ -1,3 +1,24 @@
+// nav bar
+let ul = document.querySelector("nav > ul");
+console.log(ul)
+let menuToggler = document.querySelector(".menu-toggler") as HTMLUListElement;
+
+menuToggler.addEventListener("click",function() :void{
+    ul.classList.toggle("hidden");
+})
+
+if(window.screen.width > 767){
+   ul.classList.remove("hidden");
+}else{
+   ul.classList.add("hidden");
+}
+
+
+
+
+
+
+
 //handel categories Sectrion
 
 let allCatigories = document.querySelectorAll(".image");

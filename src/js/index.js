@@ -1,4 +1,13 @@
 "use strict";
+// nav bar
+// let ul = document.querySelector("nav > ul");
+// console.log(ul);
+// let menuToggler = document.querySelector(".menu-toggler");
+// menuToggler.addEventListener("click", function () {
+//     ul.classList.toggle("hidden");
+// });
+//
+
 //handel categories Sectrion
 let allCatigories = document.querySelectorAll(".image");
 allCatigories.forEach((ele, i) => {
