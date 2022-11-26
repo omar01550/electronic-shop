@@ -1,0 +1,207 @@
+{
+  "mobiles":[
+     {
+       "name":"samsung galaxy note 20 ultra",
+       "id":"1",
+       "barnd":"samsung",
+       "storage":"256",
+       "ram":"8",
+       "color":"bronze",
+       "price":"24000",
+       "image":"https://www.elshennawy.com/Data/Products/26-11-2020-12-12-12-294.jpg"
+     },
+
+     {
+       "name":"samsung galaxy note 20 ultra",
+       "id":"2",
+       "barnd":"samsung",
+       "storage":"256",
+       "ram":"8",
+       "color":"black",
+       "price":"24000",
+       "image":"https://www.elshennawy.com/Data/Products/26-11-2020-01-07-28-415.jpg"
+     },
+
+     {
+       "name":"samsung galaxy note 20 ultra",
+       "id":"3",
+       "barnd":"samsung",
+       "storage":"256",
+       "ram":"8",
+       "color":"white",
+       "price":"24000",
+       "image":"https://www.elshennawy.com/Data/Products/26-11-2020-02-07-53-419.jpg"
+     },
+
+     {
+       "name":"samsung galaxy note 20 ultra",
+       "id":"4",
+       "barnd":"samsung",
+       "storage":"256",
+       "ram":"8",
+       "color":"green",
+       "price":"24000",
+       "image":"https://www.elshennawy.com/Data/Products/26-11-2020-11-58-37-435.jpg"
+     },
+
+     {
+       "name":"nokia 5.3",
+       "id":"5",
+       "barnd":"nokia",
+       "storage":"64",
+       "ram":"4",
+       "color":"black",
+       "price":"3850",
+       "image":"https://www.elshennawy.com/Data/Products/28-11-2020-09-09-28-594.jpg"
+     },
+
+     {
+       "name":"nokia 5.3",
+       "id":"6",
+       "barnd":"nokia",
+       "storage":"64",
+       "ram":"4",
+       "color":"blue",
+       "price":"3850",
+       "image":"https://www.elshennawy.com/Data/Products/28-11-2020-09-10-37-197.jpg"
+     },
+
+     {
+       "name":"nokia 5.3",
+       "id":"7",
+       "barnd":"nokia",
+       "storage":"64",
+       "ram":"4",
+       "color":"dusk",
+       "price":"3850",
+       "image":"https://www.elshennawy.com/Data/Products/28-11-2020-09-37-52-099.jpg"
+     },
+
+     {
+       "name":"nokia 5.3",
+       "id":8,
+       "barnd":"nokia",
+       "storage":"64",
+       "ram":"4",
+       "color":"grey",
+       "price":"3850",
+       "image":"https://www.elshennawy.com/Data/Products/28-11-2020-09-56-02-409.jpg"
+     },
+
+
+     {
+       "name":"redmi note 10s",
+       "id":"9",
+       "barnd":"redmi",
+       "storage":"128",
+       "ram":"6",
+       "color":"white",
+       "price":"7500",
+       "image":"https://www.elshennawy.com/Data/Products/25-06-2021-03-57-31-362.jpg"
+     },
+
+
+     {
+       "name":"redmi note 10s",
+       "id":"10",
+       "barnd":"redmi",
+       "storage":"128",
+       "ram":"6",
+       "color":"black",
+       "price":"7500",
+       "image":"https://www.elshennawy.com/Data/Products/26-05-2021-02-22-02-005.jpg"
+     },
+
+
+     {
+       "name":"redmi note 11",
+       "id":"11",
+       "barnd":"redmi",
+       "storage":"128",
+       "ram":"6",
+       "color":"blue",
+       "price":"6900",
+       "image":"https://www.elshennawy.com/Data/Products/01-02-2022-03-52-44-505.jpg"
+     },
+
+
+     {
+       "name":"redmi note 11",
+       "id":"12",
+       "barnd":"redmi",
+       "storage":"128",
+       "ram":"6",
+       "color":"black",
+       "price":"6900",
+       "image":"https://www.elshennawy.com/Data/Products/01-02-2022-03-51-14-918.jpg"
+     }
+
+
+
+
+  ],
+  "watches":[
+     {
+        "name":"huawel watch gt2 46mm classic",
+        "id":"13",
+        "brand":"huawel",
+        "color":"grey",
+        "price":"4800",
+        "image":"https://www.elshennawy.com/Data/Products/12-03-2021-03-08-34-107.jpg"
+     },
+
+
+     {
+        "name":"huawel watch gt2 46mm classic",
+        "id":"14",
+        "brand":"huawel",
+        "color":"grey",
+        "price":"4800",
+        "image":"https://www.elshennawy.com/Data/Products/12-03-2021-03-14-52-846.jpg"
+     },
+
+
+     {
+        "name":"huawel watch gt2 46mm classic",
+        "id":"15",
+        "brand":"huawel",
+        "color":"grey",
+        "price":"4800",
+        "image":"https://www.elshennawy.com/Data/Products/12-03-2021-03-31-24-955.jpg"
+     },
+
+
+     {
+        "name":"huawel watch gt2 46mm classic",
+        "id":"16",
+        "brand":"huawel",
+        "color":"grey",
+        "price":"4800",
+        "image":"https://www.elshennawy.com/Data/Products/12-03-2021-03-36-58-435.jpg"
+     },
+
+
+     {
+        "name":"huawel watch gt2 46mm classic",
+        "id":"17",
+        "brand":"huawel",
+        "color":"grey",
+        "price":"4800",
+        "image":"https://www.elshennawy.com/Data/Products/16-03-2021-02-36-14-005.jpg"
+     },
+
+
+     {
+        "name":"huawel watch gt2 46mm classic",
+        "id":"18",
+        "brand":"huawel",
+        "color":"grey",
+        "price":"4800",
+        "image":"https://www.elshennawy.com/Data/Products/16-03-2021-02-37-06-963.jpg"
+     }
+
+
+
+  ]
+
+}

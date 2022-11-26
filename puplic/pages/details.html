@@ -2,59 +2,93 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>product details</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- font awesime lik -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <!-- google fonts cairo font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900;1000&display=swap" rel="stylesheet">
+    <!-- css link -->
+    <link rel="stylesheet" href="../../style/main.css">
+    <title>electronics</title>
   </head>
   <body>
-      <!-- header -->
-    <header>
-        <nav class="container">
-            <a href="#" class="logo">electronics</a>
-            <ul>
-                 <li>
-                     <a href="">home</a>
-                 </li>
+      <!-- loder animation -->
+        <!-- loder animation -->
+      <!--  header -->
+        <header>
+            <nav class="container">
+                <i class="fa fa-bars menu-toggler"></i>
+                <a href="#" class="logo">electronics</a>
+                <ul class="">
+                     <li>
+                         <a href="index.html" class="">home</a>
+                     </li>
 
-                 <li>
-                     <a href="cameras.html">cameras</a>
+                     <li>
+                         <a href="mobiles.html">mobiles</a>
 
-                     <ul class="product-types">
-                         <li>
-                             <a href="cameras.html">kannon</a>
-                         </li>
-                         <li>
-                              <a href="cameras.html">nikon</a>
-                         </li>
-                         <li>
-                               <a href="cameras.html">general</a>
-                         </li>
-                     </ul>
+                     </li>
 
-                 </li>
+                     <li>
+                         <a href="watches.html">watches</a>
+                     </li>
+                  </ul>
+                <div class="header-right">
+                     <i class="fa fa-moon"></i>
+                     <i class="fa fa-user"></i>
+                     <div class="cart-shopping">
+                          <span>0</span>
+                          <i class="fa fa-shopping-cart"></i>
+                          <span class="cart-title">SHOPPING CART</span>
+                     </div>
+                </div>
+            </nav>
+        </header>
+        <main class="page details-page">
+              <div class="images">
+                   <div class="main-image">
+                        <img src="https://www.elshennawy.com/Data/Products/26-11-2020-12-12-12-294.jpg" alt="not found">
+                   </div>
+                   <div class="small-images">
+                         <img src="https://www.elshennawy.com/Data/Products/26-11-2020-12-12-12-294.jpg" alt="not found">
+                         <img src="https://www.elshennawy.com/Data/Products/26-11-2020-01-07-28-415.jpg" alt="not found">
+                   </div>
+              </div>
 
-                 <li>
-                     <a href="watches.html">watches</a>
+              <div class="product-content">
+                   <div class="up">
+                        <h1 class="product-name"></h1>
+                        <i class="fa fa-heart"></i>
+                   </div>
 
-                     <ul class="product-types">
-                         <li>
-                             <a href="watches.html">huawel</a>
-                         </li>
+                   <table>
+                        <tr>
+                            <td>color</td>
+                            <td>red</td>
+                        </tr>
+                        <tr>
+                            <td>qtr :</td>
+                            <td class="counter">
+                                 <button type="button" name="button" class="increment">+</button>
+                                 <h3 class="count">1</h3>
+                                 <button type="button" name="button" class="decrement">-</button>
+                            </td>
+                        </tr>
+                   </table>
+              </div>
 
-                     </ul>
-                 </li>
-            </ul>
-
-
-            <div class="header-right">
-                 <i class="fa fa-search"></i>
-                 <div class="cart-shopping">
-                      <span>0</span>
-                      <i class="fa fa-shopping-cart"></i>
-                      <span class="cart-title">SHOPPING CART</span>
-                 </div>
-            </div>
-        </nav>
-    </header>
-  <!--  header -->
-
+              <div class="right">
+                  <h2 class="product-price">14000</h2>
+                  <button type="button" name="button" class="add-to-cart">
+                         <span>add to cart</span>
+                         <i class="fa fa-cart-shopping"></i>
+                  </button>
+              </div>
+        </main>
+       <!--  header -->
+   <script src="../../src/js/details.js" charset="utf-8"></script>
   </body>
 </html>
