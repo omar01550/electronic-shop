@@ -180,6 +180,10 @@ ul.product-types li{
    font-size:1.3rem;
 }
 
+.header-right > *{
+    margin-right: 30px;
+}
+
 .header-right span.cart-title{
     font-size: 1rem;
 }
@@ -529,8 +533,8 @@ footer .container ul li{
 }
 
 .details-page .images{
-    width:50%;
-    height: 500px;
+
+
 }
 
 .details-page img{
@@ -573,9 +577,13 @@ footer .container ul li{
      padding-left: 30px;
   }
 
-.product-content .add-to-cart{
-    margin-top: 80px;
-}
+ .details-page .right{
+     margin-top: 80px;
+ }
+
+ .details-page .add-to-cart{
+    width: 250px;
+ }
 
 
 /* // details page media { */

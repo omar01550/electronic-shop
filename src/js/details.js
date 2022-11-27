@@ -1,3 +1,4 @@
+let allData = JSON.parse(localStorage.products);
 let product =JSON.parse(localStorage.products).mobiles.filter(mobile => mobile.id == localStorage.productId);
 
 //handel product
@@ -6,7 +7,6 @@ let productName= document.querySelector(".product-name");
 productName.innerHTML=product[0].name;
 let productPrice= document.querySelector('.product-price');
 productPrice.innerHTML=product[0].price;
-
 //handel images
 let mainImage = document.querySelector(".main-image img");
 let smallImages= document.querySelectorAll('.small-images img');
@@ -38,4 +38,19 @@ decrement.addEventListener("click",function () {
     productPrice.innerHTML=count*product[0].price;
   }
 
+})
+
+
+
+// handel add to cart
+let addToCart = document.querySelector(".add-to-cart");
+
+addToCart.addEventListener("click",function () {
+    if(count > 0){
+         for(let i=0;i<count;i++){
+             allData.cart.push(product);
+         }
+      }
+      localStorage.setItem("products",JSON.stringify(allData));
+      window.location="cart.html";
 })

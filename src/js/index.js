@@ -97,3 +97,5 @@ let loder = document.querySelector(".loder");
 window.onload = function () {
     loder.classList.add("hidden")
 }
+
+console.log(data);

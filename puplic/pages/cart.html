@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html>
+<!DOCTYPE html>
+<html>
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <!-- font awesime lik -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
     <!-- google fonts cairo font -->
@@ -11,62 +14,53 @@
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900;1000&display=swap" rel="stylesheet">
     <!-- css link -->
     <link rel="stylesheet" href="../../style/main.css">
-    <title>mobiles</title>
+    <title>your cart</title>
   </head>
   <body>
-    <div class="loder">
-        <div class="circle">
+      <!-- <div class="loder">
+           <div class="circle">
 
-        </div>
-    </div>
-
+           </div>
+      </div> -->
       <!--  header -->
         <header>
             <nav class="container">
+                <i class="fa fa-bars menu-toggler"></i>
                 <a href="#" class="logo">electronics</a>
-                <ul>
+                <ul class="">
                      <li>
-                         <a href="index.html">home</a>
+                         <a href="index.html" class="active-link">home</a>
                      </li>
 
-                     <li >
-                         <a href="mobiles.html" class="active-link">mobiles</a>
+                     <li>
+                         <a href="mobiles.html">mobiles</a>
 
                      </li>
 
                      <li>
                          <a href="watches.html">watches</a>
                      </li>
-                </ul>
-
+                  </ul>
                 <div class="header-right">
-                      <i class="fa fa-moon theme-icon"></i>
-                      <a href="login.html">
+                     <i class="fa fa-moon theme-icon"></i>
+                     <a href="login.html">
                           <i class="fa fa-user"></i>
-                      </a>
-                      <a href="cart.html">
-                        <div class="cart-shopping">
-                             <span class="cart-count">0</span>
-                             <i class="fa fa-shopping-cart"></i>
+                     </a>
+                     <div class="cart-shopping">
+                          <span class="cart-count">0</span>
+                          <i class="fa fa-shopping-cart"></i>
 
-                        </div>
-                      </a>
+                     </div>
                 </div>
             </nav>
         </header>
       <!--  header -->
 
-      <!-- home section -->
-        <main class="mobiles-page">
-             <h1 class="page-title"> mobiles </h1>
-             <div class="products">
-
-             <!-- show more btn -->
-             <button type="button" name="button" class="show-more">show more</button>
-
-        </main>
-      <!-- end home section -->
-      <script src="../../src/js/mobiles.js" charset="utf-8"></script>
+      <main class="page cart-page">
+           <div class="products">
+                   <h1>all products</h1>
+           </div>
+      </main>
       <script src="../../src/js/common.js" charset="utf-8"></script>
   </body>
 </html>
