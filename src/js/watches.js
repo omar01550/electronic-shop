@@ -3,20 +3,18 @@ let data = JSON.parse(localStorage.products);
 let watches = data.watches;
 console.log(watchesSecction);
 for(let i=0;i<watches.length;i++){
-     watchesSecction.innerHTML+= createProductWatch(watches[i].id,watches[i].image,watches[i].name,watches[i].barnd,watches[i].storage,watches[i].ram,watches[i].color,watches[i].price)
+     watchesSecction.innerHTML+= createProductWatch(watches[i].id,watches[i].image,watches[i].name,watches[i].color,watches[i].price)
 
 }
 
 
-function createProductWatch(id,img,title,brand,storage,ram,color,price) {
+function createProductWatch(id,img,title,color,price) {
       let product = `
                 <div class="mobile product" id=${id}>
                 <img src=${img} alt="not found image" class="mobile-image">
                 <div class="details">
                     <h1 class="mobile-title">${title}</h1>
-                    <small class="brand">${brand}</small>
-                    <span class="storage">storage ${storage} gb</span>
-                    <span class="ram">ram ${ram} gb</span>
+
                     <span>color ${color}</span>
                     <div class="price">
                         <h3 class="real-price">${price}</h3>

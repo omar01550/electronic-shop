@@ -184,6 +184,10 @@ ul.product-types li{
     margin-right: 30px;
 }
 
+.header-right a{
+    color: var(--text-color);
+ }
+
 .header-right span.cart-title{
     font-size: 1rem;
 }

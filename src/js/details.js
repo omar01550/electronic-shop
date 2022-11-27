@@ -1,6 +1,10 @@
 let allData = JSON.parse(localStorage.products);
 let product =JSON.parse(localStorage.products).mobiles.filter(mobile => mobile.id == localStorage.productId);
+if(product.length == 0){
+    product = JSON.parse(localStorage.products).watches.filter(watch => watch.id == localStorage.productId)
+}
 
+console.log(product);
 //handel product
 
 let productName= document.querySelector(".product-name");
