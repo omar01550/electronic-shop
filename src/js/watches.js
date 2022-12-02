@@ -5,13 +5,13 @@ async function getWatchesFromDb() {
     let watches = await response.json()  ;
 
     watches.forEach((watch, i) => {
-          watchesSecction.innerHTML+=createProductMobile(i,watch.image,watch.name,watch.brand,watch.storage,watch.ram,watch.color,watch.price);
+          watchesSecction.innerHTML+=createProductWatch(i,watch.image,watch.title,watch.color,watch.price) ;
   });
 
   clickOnProduct()    ;
 }
 
-getMobilesFromDb()
+getWatchesFromDb();
 
 
 
