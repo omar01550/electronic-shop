@@ -1,11 +1,21 @@
-let mobilesSecction = document.querySelector(".products");
-let data = JSON.parse(localStorage.products);
-let mobiles = data.mobiles;
-console.log(mobilesSecction);
-for(let i=0;i<mobiles.length;i++){
-     mobilesSecction.innerHTML+= createProductMobile(mobiles[i].id,mobiles[i].image,mobiles[i].name,mobiles[i].barnd,mobiles[i].storage,mobiles[i].ram,mobiles[i].color,mobiles[i].price)
+let mobilesSection = document.querySelector(".products");
+console.log(mobilesSection);
+async function getMobilesFromDb() {
+    let response =  await fetch(`https://omarapp-72ea1-default-rtdb.firebaseio.com/products/mobiles.json`);
+    let mobiles = await response.json()  ;
+
+    mobiles.forEach((mobile, i) => {
+          mobilesSection.innerHTML+=createProductMobile(i,mobile.image,mobile.name,mobile.brand,mobile.storage,mobile.ram,mobile.color,mobile.price);
+  });
+
+  clickOnProduct();
+
 
 }
+
+getMobilesFromDb()
+
+
 
 
 function createProductMobile(id,img,title,brand,storage,ram,color,price) {
@@ -47,9 +57,24 @@ products.forEach((product, i) => {
     })
 });
 
+//loder animation
+// let loder = document.querySelector(".loder");
+// window.onload = function () {
+//     loder.classList.add("hidden")
+// }
 
-let loder = document.querySelector(".loder");
-
-window.onload = function () {
-    loder.classList.add("hidden")
+function clickOnProduct() {
+  let allProducts = document.querySelectorAll(".product");
+  allProducts.forEach((product, i) => {
+      product.addEventListener("click",function () {
+          localStorage.currentId = product.id;
+          // check type api
+          if (product.classList.contains("mobile")) {
+              localStorage.type="mobiles";
+          }else{
+            localStorage.type="watches";
+          }
+          window.location="details.html";
+      })
+  });
 }

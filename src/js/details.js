@@ -47,19 +47,6 @@ function handelDetails (data) {
 
   })
 
-
+}
 
   // handel add to cart
-  let addToCart = document.querySelector(".add-to-cart");
-
-  addToCart.addEventListener("click",function () {
-      if(count > 0){
-           for(let i=0;i<count;i++){
-               allData.cart.push(product);
-           }
-        }
-        localStorage.setItem("products",JSON.stringify(allData));
-        window.location="cart.html";
-  })
-
-}

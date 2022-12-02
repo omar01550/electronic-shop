@@ -8,6 +8,7 @@ let popularwatches = document.querySelector(".popular-watches .container") ;
 async function getMobilesFromDb() {
     let response =  await fetch(`https://omarapp-72ea1-default-rtdb.firebaseio.com/products/mobiles.json`);
     let mobiles = await response.json()  ;
+    console.log(mobiles);
     mobiles.forEach((mobile, i) => {
       popularMobiles.innerHTML+=createProductMobile(i,
         mobile.image,mobile.name,mobile.brand,mobile.storage,mobile.ram,mobile.color,mobile.price)        ;
