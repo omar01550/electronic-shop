@@ -1,36 +1,44 @@
 "use strict";
-let data ;
-if (!localStorage.getItem("products")) { // check if not have data
-     getDataFromJson();
-}
-data = JSON.parse(localStorage.getItem("products")); // aplication data
 //sections
 let popularMobiles = document.querySelector(".popular-mobiles .container") ;
 let popularwatches = document.querySelector(".popular-watches .container") ;
-
-for(let i=0;i<data.mobiles.length;i++){
-      let current = data.mobiles;
-      popularMobiles.innerHTML+=createProductMobile(current[i].id,current[i].image,current[i].name,current[i].barnd,current[i].storage,current[i].ram,current[i].color,current[i].price);
-}
-
-for(let i=0;i<data.watches.length;i++){
-      let watches = data.watches;
-
-      popularwatches.innerHTML+=createProductWatch(watches[i].id,watches[i].image,watches[i].name,watches[i].color,watches[i].price);
-}
-
-
 //event listeners
-let products = document.querySelectorAll(".product")
-products.forEach((product, i) => {
-    product.addEventListener("click",function () {
-        localStorage.setItem("productId",product.id)
 
-        window.location="details.html";
-        console.log(true);
-    })
-});
+//get mobiles data;
+async function getMobilesFromDb() {
+    let response =  await fetch(`https://omarapp-72ea1-default-rtdb.firebaseio.com/products/mobiles.json`);
+    let mobiles = await response.json()  ;
+    mobiles.forEach((mobile, i) => {
+      popularMobiles.innerHTML+=createProductMobile(i,
+        mobile.image,mobile.name,mobile.brand,mobile.storage,mobile.ram,mobile.color,mobile.price)        ;
+    });
 
+    let allProducts = document.querySelectorAll(".product");
+    allProducts.forEach((product, i) => {
+        product.addEventListener("click",function () {
+            localStorage.currentId = product.id;
+            // check type api
+            if (product.classList.contains("mobile")) {
+                localStorage.type="mobiles";
+            }else{
+              localStorage.type="watches";
+            }
+            window.location="details.html";
+        })
+    });
+
+}
+getMobilesFromDb();
+
+async function getWatchesFromDb() {
+  let response =  await fetch(`https://omarapp-72ea1-default-rtdb.firebaseio.com/products/watches.json`);
+  let watches = await response.json()  ;
+  watches.forEach((watch, i) => {
+    popularwatches.innerHTML+=createProductWatch(i,watch.image,watch.title,watch.color,watch.price) ;
+  });
+}
+
+getWatchesFromDb();
 // handel scrolling in sections
 let popularMobilesSection = document.querySelector(".popular-mobiles .container");
 let arrowLeft = document.querySelector(".popular-mobiles .arrow-left");
@@ -66,49 +74,7 @@ arrowRightWatches.addEventListener("click",function () {
      top:0
   })
 })
-
-
-
-
-//
-// //handel categories Sectrion
-// let allCatigories = document.querySelectorAll(".image");
-// allCatigories.forEach((ele, i) => {
-//     ele.addEventListener("click", function () {
-//         window.location = ele.dataset.target;
-//     });
-// });
-// let popularMobilesSection = document.querySelector(".popular-mobiles .container");
-// let arrowLeft = document.querySelector(".popular-mobiles .arrow-left");
-// let arrowRight = document.querySelector(".popular-mobiles .arrow-right");
-// let mobilesCard = document.querySelectorAll(".product"); // all mobiles
-//
-// mobilesCard.forEach((mobile, i) => {
-//     mobile.onclick = function () {
-//         window.location = 'details.html';
-//     };
-// });
-// arrowRight.addEventListener("click", scrollToRight);
-// arrowLeft.addEventListener("click", scrollToLeft);
-// function scrollToRight() {
-//     popularMobilesSection.scrollLeft += 350;
-// }
-// function scrollToLeft() {
-//     popularMobilesSection.scrollLeft -= 350;
-// }
-// let popularWatchesSection = document.querySelector(".popular-watches .container");
-// let arrowLeftWatches = document.querySelector(".popular-watches .arrow-left");
-// let arrowRighttWatches = document.querySelector(".popular-watches .arrow-right");
-// arrowRighttWatches.addEventListener("click", function () {
-//     popularWatchesSection.scrollLeft += 350;
-// });
-// arrowLeftWatches.addEventListener("click", function () {
-//     popularWatchesSection.scrollLeft -= 350;
-// });
-
-
-
-
+// end scrolling
 
 //add data to local storage
 async function getDataFromJson() {
@@ -168,11 +134,21 @@ function createProductWatch(id,img,title,color,price) {
 
       `
       return product;
-}
-
+};
 
 //loder animation
-let loder = document.querySelector(".loder");
-window.onload = function () {
-    loder.classList.add("hidden")
-}
+// let loder = document.querySelector(".loder");
+// window.onload = function () {
+//     loder.classList.add("hidden")
+// }
+
+
+// fetch(`https://omarapp-72ea1-default-rtdb.firebaseio.com/products.json`,{
+//   method:"PUT",
+//   body:JSON.stringify()
+// }
+// ).then((res) => {
+//   return res.json();
+// }).then((data) => {
+//    console.log(data);
+// });
