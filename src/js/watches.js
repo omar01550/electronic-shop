@@ -1,11 +1,24 @@
 let watchesSecction = document.querySelector(".products");
-let data = JSON.parse(localStorage.products);
-let watches = data.watches;
-console.log(watchesSecction);
-for(let i=0;i<watches.length;i++){
-     watchesSecction.innerHTML+= createProductWatch(watches[i].id,watches[i].image,watches[i].name,watches[i].color,watches[i].price)
 
+async function getWatchesFromDb() {
+    let response =  await fetch(`https://omarapp-72ea1-default-rtdb.firebaseio.com/products/watches.json`);
+    let watches = await response.json()  ;
+
+    watches.forEach((watch, i) => {
+          watchesSecction.innerHTML+=createProductMobile(i,watch.image,watch.name,watch.brand,watch.storage,watch.ram,watch.color,watch.price);
+  });
+
+  clickOnProduct()    ;
 }
+
+getMobilesFromDb()
+
+
+
+
+
+
+
 
 
 function createProductWatch(id,img,title,color,price) {
@@ -33,14 +46,18 @@ function createProductWatch(id,img,title,color,price) {
       return product;
 }
 
-
-let products = document.querySelectorAll(".product")
-products.forEach((product, i) => {
-    product.addEventListener("click",function () {
-        console.log(product.id);
-        localStorage.productId=product.id;
-        window.location="details.html";
-
-
-    })
-});
+function clickOnProduct() {
+  let allProducts = document.querySelectorAll(".product");
+  allProducts.forEach((product, i) => {
+      product.addEventListener("click",function () {
+          localStorage.currentId = product.id;
+          // check type api
+          if (product.classList.contains("mobile")) {
+              localStorage.type="mobiles";
+          }else{
+            localStorage.type="watches";
+          }
+          window.location="details.html";
+      })
+  });
+}
