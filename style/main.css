@@ -367,8 +367,15 @@ section.home{
      position: absolute;
      cursor: pointer;
      font-size: 2rem;
-      top: 50%;
+      top: 60%;
       z-index: 100000;
+      width:60px;
+      height: 60px;
+      background-color: rgba(0,0,0,0.3);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
  }
 
 
@@ -575,7 +582,13 @@ footer .container ul li{
   .counter button{
      margin:0px 20px;
      cursor: pointer;
-     padding:5px;
+     padding:6px 12px;
+     background-color: var(--main-color);
+     color: white;
+     font-weight: bold;
+     border:none;
+     font-size:1.3rem;
+     border-radius:5px;
   }
   .product-content .fa-heart{
      padding-left: 30px;
@@ -610,14 +623,6 @@ footer .container ul li{
          width:100px;
          height: 100px;
     }
-
-
 }
-
-
-
-
-
-
 
 /* end mobiles page */

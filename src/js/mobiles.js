@@ -1,23 +1,13 @@
 let mobilesSection = document.querySelector(".products");
-console.log(mobilesSection);
-async function getMobilesFromDb() {
-    let response =  await fetch(`https://omarapp-72ea1-default-rtdb.firebaseio.com/products/mobiles.json`);
-    let mobiles = await response.json()  ;
 
-    mobiles.forEach((mobile, i) => {
-          mobilesSection.innerHTML+=createProductMobile(i,mobile.image,mobile.name,mobile.brand,mobile.storage,mobile.ram,mobile.color,mobile.price);
-  });
+// header cart count
+let cartCount = document.querySelector(".cart-count");
+console.log(cartCount);
+cartCount.innerHTML=localStorage.cartElectronicProducts?JSON.parse(localStorage.cartElectronicProducts).length:0;
 
-  clickOnProduct();
-
-
-}
-
+loading();
 getMobilesFromDb()
-
-
-
-
+// create mobile html card
 function createProductMobile(id,img,title,brand,storage,ram,color,price) {
       let product = `
                 <div class="mobile product" id=${id}>
@@ -44,25 +34,20 @@ function createProductMobile(id,img,title,brand,storage,ram,color,price) {
       `
       return product;
 }
+// get mobiles from data base
+async function getMobilesFromDb() {
+    let response =  await fetch(`https://omarapp-72ea1-default-rtdb.firebaseio.com/products/mobiles.json`);
+    let mobiles = await response.json()  ;
+
+    mobiles.forEach((mobile, i) => {
+          mobilesSection.innerHTML+=createProductMobile(i,mobile.image,mobile.name,mobile.brand,mobile.storage,mobile.ram,mobile.color,mobile.price);
+  });
+
+  clickOnProduct();
 
 
-let products = document.querySelectorAll(".product")
-products.forEach((product, i) => {
-    product.addEventListener("click",function () {
-        console.log(product.id);
-        localStorage.productId=product.id;
-        window.location="details.html";
-
-
-    })
-});
-
-//loder animation
-// let loder = document.querySelector(".loder");
-// window.onload = function () {
-//     loder.classList.add("hidden")
-// }
-
+}
+//when click on any product
 function clickOnProduct() {
   let allProducts = document.querySelectorAll(".product");
   allProducts.forEach((product, i) => {
@@ -77,4 +62,11 @@ function clickOnProduct() {
           window.location="details.html";
       })
   });
+}
+// loder
+function loading(){
+  let loder = document.querySelector(".loder");
+   window.addEventListener("load",function () {
+        loder.classList.add("hidden");
+   })
 }
