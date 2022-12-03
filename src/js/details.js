@@ -80,3 +80,20 @@ function handelCartCount() {
     let cartCount = document.querySelector(".cart-count");
     cartCount.innerHTML=localStorage.cartElectronicProducts?JSON.parse(localStorage.cartElectronicProducts).length:0;
 }
+
+
+function handelUl() {
+    let navUl = document.querySelector("header nav ul");
+    if (window.screen.availWidth <= 767) {
+        navUl.classList.add("hidden");
+    }else{
+       navUl.classList.remove("hidden");
+    }
+
+    menuToggler = document.querySelector(".menu-toggler");
+    menuToggler.addEventListener("click",function () {
+        navUl.classList.toggle("hidden");
+    });
+}
+
+window.addEventListener("load",handelUl);

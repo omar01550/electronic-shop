@@ -181,7 +181,7 @@ ul.product-types li{
 }
 
 .header-right > *{
-    margin-right: 30px;
+    margin-right: 15px;
 }
 
 .header-right a{
@@ -228,8 +228,6 @@ ul.product-types li{
       width:100%;
       min-height: 50vh;
       background-color: blue;
-      display: none;
-
 
   }
 

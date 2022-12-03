@@ -4,10 +4,10 @@ getMobilesFromDb(); //get mobiles from data base
 getWatchesFromDb(); //get watches from data base
 mobilesSectionScrolling() //
 watchesSectionScrolling()
+window.addEventListener("load",handelCartCount);
+window.addEventListener("load",handelUl);
 //cart count
-let cartCount = document.querySelector(".cart-count");
-console.log(cartCount);
-cartCount.innerHTML=JSON.parse(localStorage.cartElectronicProducts).length;
+
 // **** functions ****
 
 // create mobile html card
@@ -145,4 +145,23 @@ function watchesSectionScrolling() {
     })
   })
 
+}
+
+function handelCartCount() {
+    let cartCount = document.querySelector(".cart-count");
+    cartCount.innerHTML=localStorage.cartElectronicProducts?JSON.parse(localStorage.cartElectronicProducts).length:0;
+}
+
+function handelUl() {
+    let navUl = document.querySelector("header nav ul");
+    if (window.screen.availWidth <= 767) {
+        navUl.classList.add("hidden");
+    }else{
+       navUl.classList.remove("hidden");
+    }
+
+    menuToggler = document.querySelector(".menu-toggler");
+    menuToggler.addEventListener("click",function () {
+        navUl.classList.toggle("hidden");
+    });
 }
