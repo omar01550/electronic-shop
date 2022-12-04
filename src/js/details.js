@@ -97,3 +97,57 @@ function handelUl() {
 }
 
 window.addEventListener("load",handelUl);
+
+
+// theme dark and light;
+function handelTheme() {
+    // handel icon sun and moon
+    switch (localStorage.electronicTheme) {
+      case "light":
+           themeToggler.classList.remove("fa-sun")  ;
+           themeToggler.classList.add("fa-moon")  ;
+           console.log("light");
+        break;
+
+      case "dark":
+        themeToggler.classList.remove("fa-moon")  ;
+        themeToggler.classList.add("fa-sun")  ;
+        console.log("dark");
+        break;
+      default:
+
+    }
+
+    // change colors
+    themeColors();
+}
+
+function changeTheme() {
+    localStorage.electronicTheme=="light"?localStorage.electronicTheme="dark":localStorage.electronicTheme="light";
+}
+
+function themeColors() {
+    switch (localStorage.electronicTheme) {
+      case "light":
+            document.documentElement.style.setProperty("--main-bg","white");
+            document.documentElement.style.setProperty("--text-color","black");
+            document.documentElement.style.setProperty("--product-bg","white");
+      break;
+
+      case "dark":
+           document.documentElement.style.setProperty("--main-bg","rgba(16, 7, 39, 0.93)");
+           document.documentElement.style.setProperty("--text-color","white");
+           document.documentElement.style.setProperty("--product-bg","rgba(4, 4, 44, 0.8)");
+
+      break;
+      default:
+
+    }
+}
+
+let themeToggler = document.querySelector(".theme-toggler");
+window.addEventListener("load",handelTheme);
+themeToggler.addEventListener("click",function () {
+    changeTheme();
+    handelTheme();
+});

@@ -1,6 +1,8 @@
 :root{
    --main-color:rgba(39, 50, 245, 0.8);
    --text-color:black;
+   --main-bg:white;
+   --product-bg:rgba(4, 4, 44, 0.8);
 }
 
 /* fonts */
@@ -116,7 +118,6 @@ a{
 
 header{
    border-bottom: 1px solid #f0f0f0;
-
 }
 
 nav{
@@ -125,6 +126,7 @@ nav{
    align-items: center;
     padding-top:10px;
     padding-bottom: 10px;
+    background-color: var(--main-bg)
 }
 
 header nav > ul{
@@ -182,6 +184,7 @@ ul.product-types li{
 
 .header-right > *{
     margin-right: 15px;
+    cursor: pointer
 }
 
 .header-right a{
@@ -193,15 +196,16 @@ ul.product-types li{
 }
 
 
-.fa-search{
+.search{
    margin-right:  30px;
 }
 .fa-cart-shopping{
    cursor: pointer;
+   color: var(--text-color);
 }
 .logo{
    text-transform: uppercase;
-   color: var(--main-color);
+   color: var(--text-color);
    font-weight: bold;
    font-size: 1.6rem;
 }
@@ -210,6 +214,10 @@ ul.product-types li{
    display: none;
    cursor: pointer;
    font-size:1.3rem;
+   color: var(--text-color);
+}
+.theme-toggler{
+   color: var(--text-color);
 }
 
 /* header media */
@@ -227,7 +235,7 @@ ul.product-types li{
       top:70px;
       width:100%;
       min-height: 50vh;
-      background-color: blue;
+      background-color: var(--main-color);
 
   }
 
@@ -260,7 +268,8 @@ section.home{
   min-height: 80vh;
   background-image: url('../puplic/images/offer10.jpg');
   backgrou`nd-repeat: no-repeat;
-  background-size: cover
+  background-size: cover;
+  margin-top:-1px;
 
 
 }
@@ -349,6 +358,8 @@ section.home{
  .popular-mobiles{
     width: 100%;
     position: relative;
+    background-color: var(--main-bg);
+    margin-top:-15px;
  }
 
  .popular-mobiles .container{
@@ -374,6 +385,7 @@ section.home{
       justify-content: center;
       align-items: center;
       border-radius: 50%;
+      color: var(--text-color);
  }
 
 
@@ -388,6 +400,11 @@ section.home{
         z-index: 10000;
      }
 
+  .product{
+      background-color: var(--product-bg);
+      color: var(--text-color);
+  }
+
  .mobile{
     width:300px;
     min-height: 500px;
@@ -395,6 +412,8 @@ section.home{
     margin:30px;
     cursor: pointer;
     transition: 300ms;
+    color: var(--text-color);
+
   }
 
  .popular-mobiles .container .mobile:hover{
@@ -418,6 +437,7 @@ section.home{
         font-weight: bold;
         text-transform: uppercase;
 
+
   }
 
   .details .brand{
@@ -439,6 +459,9 @@ section.home{
      position: relative;
   }
 
+ .add-to-cart .fa-cart-shopping-cart{
+    color: white
+ }
   .add-to-cart:hover{
      background-color: black
   }
@@ -451,6 +474,7 @@ section.home{
   .popular-watches{
      width: 100%;
      position: relative;
+     background-color: var(--main-bg);
   }
 
   .popular-watches .arrow{
@@ -473,6 +497,7 @@ section.home{
   padding-bottom: 50px;
   overflow: scroll;
   position: relative;
+
 }
 
 .watch{
@@ -498,6 +523,8 @@ section.home{
 
 footer{
     width: 100%;
+    background-color: var(--main-bg);
+    color: white;
   }
 
   footer .container{
@@ -519,11 +546,20 @@ footer .container ul li{
    margin-right: 30px;
 }
 
+footer a{
+   color: var(--text-color);
+   font-weight: bold;
+   font-size:1.3rem;
+}
 
 /* strat mobiles page */
 .mobiles-page,main.page{
    width: 100%;
    padding:50px 20px;
+   background-color: var(--main-bg);
+   color: var(--text-color);
+   min-height: 100vh;
+
 }
 .mobiles-page .products,main.page .products{
     display: flex;
@@ -533,11 +569,14 @@ footer .container ul li{
 }
 
 
-/* details page */
+/* ************ datails-page ************************* */
 .details-page{
+    min-height: 95vh;
     display: flex;
     justify-content: space-around;
     align-items: start;
+    background-color: var(--main-bg);
+
 
 }
 
@@ -552,6 +591,7 @@ footer .container ul li{
 .details-page .images .main-image img{
      width:400px;
      height: 400px;
+
 }
 
 .details-page .images .small-images img{
@@ -565,15 +605,30 @@ footer .container ul li{
      align-items: center;
      margin-top:80px;
   }
+  .details-page .product-name{
+     color: var(--text-color);
+  }
+  .details-page .product-price{
+     color: var(--text-color);
+     text-align: center;
+  }
 
 .product-content table td{
    padding:10px 40px;
+   color: var(--text-color);
+}
+
+table td.key{
+   font-weight: bold;
+   font-size:1.5rem;
+   text-transform: capitalize;
 }
 
  .counter{
      display: flex;
     justify-content: space-between;
     align-items: center;
+    color: var(--text-color);
 
   }
 
