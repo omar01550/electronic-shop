@@ -221,3 +221,10 @@ themeToggler.addEventListener("click",function () {
     changeTheme();
     handelTheme();
 });
+
+
+let userIcon = document.querySelector(".accounts");
+
+if (localStorage.login) {
+    userIcon.style.color="red"
+}

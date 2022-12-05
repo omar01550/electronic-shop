@@ -2,11 +2,48 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- font awesime lik -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <!-- google fonts cairo font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900;1000&display=swap" rel="stylesheet">
+    <!-- css link -->
+    <link rel="stylesheet" href="../../style/main.css">
+      <title>login</title>
   </head>
   <body>
-       <main class="page login-page">
-             
+       <main class="page sign-page">
+              <div class="sign-card">
+                     <ul class="routes">
+                           <li data-target=".login">sign in </li>
+                           <li data-target=".register" class="active-section">register</li>
+                     </ul>
+
+                     <div class="sign-content">
+                           <div class="register">
+                               <form class="register-form">
+                                    <input type="text" name="user-name" value="" placeholder="Add User Name" class="register-user-name" required>
+                                    <input type="email" name="email" value="" placeholder="add your email" class="register-email" required>
+                                    <input type="password" name="password" value="" placeholder="password" class="register-password" required>
+                                    <input type="file" name="" value="" class="user-image">
+                                    <input type="submit" name="" value="submit">
+                               </form>
+                           </div>
+
+                           <div class="login hidden">
+                             <form class="register-login">
+                                  <input type="email" name="email" value="" placeholder="add your email" class="login-email" required>
+                                  <input type="password" name="password" value="" placeholder="password" class="login-password" required>
+                                  <input type="submit" name="" value="submit">
+                             </form>
+                           </div>
+                     </div>
+              </div>
        </main>
+
+       <script src="../../src/js/login.js" charset="utf-8"></script>
   </body>
 </html>

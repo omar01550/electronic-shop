@@ -30,6 +30,12 @@ a{
 
 
 /* classes  */
+.active-section{
+    padding:10px 20px;
+    background-color: var(--main-color)  ;
+    color: white;
+}
+
 .container{
    padding-left: 100px;
    padding-right: 100px ;
@@ -568,6 +574,66 @@ footer a{
     flex-wrap: wrap;
 }
 
+
+/* sign page */
+main.sign-page{
+   width:100%;
+   min-height: 100vh;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+}
+
+/* sign card  */
+main.sign-page .sign-card{
+     width:80%;
+     padding:10px;
+     background-color: #f0f0f0;
+}
+
+@media (max-width:767px) {
+    main.sign-page .sign-card{
+       width: 100%;
+    }
+}
+main.sign-page .sign-card .routes{
+   padding:20px;
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+   font-weight: bold;
+   font-size: 1.5rem;
+   text-transform: capitalize;
+}
+
+main.sign-page .sign-card .routes li{
+   cursor: pointer;
+}
+
+.sign-content .register,.login{
+     padding: 30px;
+}
+
+.sign-content input{
+     display: block;
+     width: 100%;
+     font-size:1.3rem;
+     border:none;
+     margin-top:20px;
+     padding:15px;
+     outline: 1px solid var(--main-color);
+     border: 2px solid var(--main-color)
+
+}
+
+.sign-content input[type="submit"]{
+    background-color: var(--main-color);
+    color: white;
+    border:none;
+    outline: none;
+    cursor: pointer;
+}
+/* end sign page */
 
 /* ************ datails-page ************************* */
 .details-page{
