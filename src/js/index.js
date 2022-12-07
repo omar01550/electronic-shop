@@ -176,13 +176,13 @@ function handelTheme() {
       case "light":
            themeToggler.classList.remove("fa-sun")  ;
            themeToggler.classList.add("fa-moon")  ;
-           console.log("light");
+
         break;
 
       case "dark":
         themeToggler.classList.remove("fa-moon")  ;
         themeToggler.classList.add("fa-sun")  ;
-        console.log("dark");
+
         break;
       default:
 
@@ -223,8 +223,36 @@ themeToggler.addEventListener("click",function () {
 });
 
 
-let userIcon = document.querySelector(".accounts");
+let user = document.querySelector(".user");
+let userCase = document.querySelector(".user-case");
+user.addEventListener("click",function () {
+    userCase.classList.toggle("hidden");
+})
 
-if (localStorage.login) {
-    userIcon.style.color="red"
+
+// hadel userIcon
+
+window.addEventListener("load",function () {
+  if (localStorage.login == "true") {
+      userCase.innerHTML=`
+          <p class="logout-btn">logout</p>
+      `;
+  }else{
+    userCase.innerHTML=`
+        <a href="login.html">login</a>
+    `;
+  }
+
+  let logOutBtn = document.querySelector(".user-case >*");
+  logOutBtn.addEventListener("click",logOut)
+  
+})
+
+// logOut
+
+function logOut() {
+     localStorage.login=false;
+     localStorage.electonicToken=null;
+     window.location="index.html";
+     console.log("done");
 }
