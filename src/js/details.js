@@ -150,6 +150,7 @@ window.addEventListener("load",handelTheme);
 themeToggler.addEventListener("click",function () {
     changeTheme();
     handelTheme();
+    console.log(commentText);
 });
 
 //************* comments section **********************
@@ -160,10 +161,10 @@ let commentText= document.getElementById("comment-text");
 let  productCommentsDiv = document.querySelector(".product-comments");
 //function createComment;
 function createComment() {
-    return {userName:localStorage.userName,content:commentText.value,date:Date.now()};
+
 };
 function getUser() {
-     fetch(`https://omarapp-72ea1-default-rtdb.firebaseio.com/users/8.json`).then((response) => {
+     fetch(`https://omarapp-72ea1-default-rtdb.firebaseio.com/users/${localStorage.electonicToken}.json`).then((response) => {
          return response.json()
      }).then((user) => {
          localStorage.userName = user.userName
@@ -185,13 +186,13 @@ async function handelArrayOfComments() {
   let response = await fetch(`https://omarapp-72ea1-default-rtdb.firebaseio.com/products/${localStorage.type}/${localStorage.currentId}/comments.json`);
   let productComments = await response.json();
   if (productComments instanceof Array) {
-       productComments.push(createComment());
+       productComments.push({userName:localStorage.userName,content:commentText.value,date:Date.now()});
        await updateCommentsToDataBase(productComments)
        await displayComments();
        console.log("done");
   }else{
       productComments=[];
-      productComments.push(createComment());
+      productComments.push({userName:localStorage.userName,content:commentText.value,date:Date.now()});
       await updateCommentsToDataBase(productComments);
       await displayComments();
       console.log("done");
@@ -203,7 +204,7 @@ commentForm.addEventListener("submit",function (e) {
     e.preventDefault()
          getUser();  //to get username;
          handelArrayOfComments();
-         commentText.value='';
+
 })
 
 // commentForm.addEventListener("submit",function (e) {
@@ -217,23 +218,31 @@ commentForm.addEventListener("submit",function (e) {
 async function displayComments() {
      let response = await fetch(`https://omarapp-72ea1-default-rtdb.firebaseio.com/products/${localStorage.type}/${localStorage.currentId}/comments.json`);
      let comments = await response.json();
-     productCommentsDiv.innerHTML+=``;
-      comments.forEach((comment, i) => {
-        productCommentsDiv.innerHTML+=`
-        <div class="comment">
-             <div class="comment-info">
-               <i class="fa fa-user"></i>
-               <span class="commrnt-user-name">${comment.userName}</span>
-               <span class="comment-date">${comment.date}</span>
-             </div>
-             <div class="comment-content">
-                   <h1>${comment.content}</h1>
-                   <h1>helo world</h1>
+     console.log(comments);
+     if (comments) {
+       productCommentsDiv.innerHTML+=``;
+        comments.forEach((comment, i) => {
+          productCommentsDiv.innerHTML+=`
+          <div class="comment">
+               <div class="comment-info">
+                 <i class="fa fa-user"></i>
+                 <span class="commrnt-user-name">${comment.userName}</span>
+                 <span class="comment-date">${comment.date}</span>
+               </div>
+               <div class="comment-content">
+                     <h1>${comment.content}</h1>
 
-             </div>
-        </div>
-        `
-      });
+
+               </div>
+          </div>
+          `
+        });
+     }else{
+           productCommentsDiv.innerHTML+=``;
+          productCommentsDiv.innerHTML+=`
+              <h1>no commements</h1>
+          `;
+     }
 
 }
 
