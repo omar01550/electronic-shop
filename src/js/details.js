@@ -1,4 +1,5 @@
 // get all products by id and type
+getUser();  //to get username;
 async function getProduct() {
     let response = await fetch(`https://omarapp-72ea1-default-rtdb.firebaseio.com/products/${localStorage.type}/${localStorage.currentId}.json`);
     let data = await response.json();
@@ -15,7 +16,7 @@ function handelDetails (data) {
   let productName= document.querySelector(".product-name");
   productName.innerHTML=data.name;
   let productPrice= document.querySelector('.product-price');
-  productPrice.innerHTML=data.price;
+  productPrice.innerHTML=data.price+" EGP";
   //handel images
   let imagesSection = document.querySelector(".details-page .images");
   imagesSection.innerHTML=`
@@ -106,13 +107,13 @@ function handelTheme() {
       case "light":
            themeToggler.classList.remove("fa-sun")  ;
            themeToggler.classList.add("fa-moon")  ;
-           console.log("light");
+
         break;
 
       case "dark":
         themeToggler.classList.remove("fa-moon")  ;
         themeToggler.classList.add("fa-sun")  ;
-        console.log("dark");
+
         break;
       default:
 
@@ -150,7 +151,7 @@ window.addEventListener("load",handelTheme);
 themeToggler.addEventListener("click",function () {
     changeTheme();
     handelTheme();
-    console.log(commentText);
+
 });
 
 //************* comments section **********************
@@ -163,87 +164,120 @@ let  productCommentsDiv = document.querySelector(".product-comments");
 function createComment() {
 
 };
+
+
 function getUser() {
      fetch(`https://omarapp-72ea1-default-rtdb.firebaseio.com/users/${localStorage.electonicToken}.json`).then((response) => {
-         return response.json()
+         response = response.json();
+         if (response.status==200) {
+             return response;
+         }
      }).then((user) => {
-         localStorage.userName = user.userName
+         localStorage.userName = user.userName;
+
+     }).catch((user) => {
+
      })
 
 }
 function updateCommentsToDataBase(comments) {
-   fetch(`https://omarapp-72ea1-default-rtdb.firebaseio.com/products/${localStorage.type}/${localStorage.currentId}/comments.json`,{
+   return (fetch(`https://omarapp-72ea1-default-rtdb.firebaseio.com/products/${localStorage.type}/${localStorage.currentId}/comments.json`,{
       method:"PUT",
       body:JSON.stringify(comments)
    }).then((response) => {
        return response.json()
    }).then((data) => {
+      return "done";
+   }))
 
-   })
 };
 
 async function handelArrayOfComments() {
   let response = await fetch(`https://omarapp-72ea1-default-rtdb.firebaseio.com/products/${localStorage.type}/${localStorage.currentId}/comments.json`);
   let productComments = await response.json();
+
   if (productComments instanceof Array) {
-       productComments.push({userName:localStorage.userName,content:commentText.value,date:Date.now()});
-       await updateCommentsToDataBase(productComments)
-       await displayComments();
-       console.log("done");
+        let commentsAfterUpdate = await [{userName:localStorage.userName,content:commentText.value,date:new Date()},...productComments];
+         updateCommentsToDataBase(commentsAfterUpdate);
+         updateCommentsToDataBase(commentsAfterUpdate).then(() => {
+            displayComments();
+            let commentText = document.getElementById("comment-text");
+            commentText.value=''
+            commentText.focus();
+         })
+
+
+
   }else{
-      productComments=[];
-      productComments.push({userName:localStorage.userName,content:commentText.value,date:Date.now()});
-      await updateCommentsToDataBase(productComments);
-      await displayComments();
-      console.log("done");
-  }
+       let commentsAfterUpdate = [{userName:localStorage.userName,content:commentText.value,date:new Date()}];
+       await updateCommentsToDataBase(commentsAfterUpdate);
+       updateCommentsToDataBase(commentsAfterUpdate)
+       updateCommentsToDataBase(commentsAfterUpdate).then(() => {
+          displayComments();
+          let commentText = document.getElementById("comment-text");
+          commentText.value=''
+          commentText.focus();
+
+       })
+}
+
 }
 
 
 commentForm.addEventListener("submit",function (e) {
     e.preventDefault()
-         getUser();  //to get username;
+
          handelArrayOfComments();
+
+
+
 
 })
 
-// commentForm.addEventListener("submit",function (e) {
-//     e.preventdefault();
-//      // getuser();  //to get username;
-//      // handelArrayOfComments();
-//
-// });
-
 
 async function displayComments() {
+
+
      let response = await fetch(`https://omarapp-72ea1-default-rtdb.firebaseio.com/products/${localStorage.type}/${localStorage.currentId}/comments.json`);
      let comments = await response.json();
-     console.log(comments);
-     if (comments) {
-       productCommentsDiv.innerHTML+=``;
-        comments.forEach((comment, i) => {
-          productCommentsDiv.innerHTML+=`
-          <div class="comment">
-               <div class="comment-info">
-                 <i class="fa fa-user"></i>
-                 <span class="commrnt-user-name">${comment.userName}</span>
-                 <span class="comment-date">${comment.date}</span>
-               </div>
-               <div class="comment-content">
-                     <h1>${comment.content}</h1>
 
 
-               </div>
-          </div>
-          `
-        });
-     }else{
-           productCommentsDiv.innerHTML+=``;
-          productCommentsDiv.innerHTML+=`
-              <h1>no commements</h1>
-          `;
-     }
+      uiComment(comments);
 
 }
 
 displayComments();
+function uiComment(comments){
+  if (comments) {
+         productCommentsDiv.innerHTML=``;
+          comments.forEach((comment, i) => {
+           let commentDate = new Date(comment.date);
+
+            productCommentsDiv.innerHTML+=`
+            <div class="comment">
+                 <div class="comment-info">
+                   <i class="fa fa-user"></i>
+                   <span class="commrnt-user-name">${comment.userName}</span>
+                   <div class="comment-date">
+                       <span>${commentDate.getDay()}</span>/
+                       <span>${commentDate.getMonth()}</span>/
+                       <span>${commentDate.getFullYear()}</span>
+                   </div>
+                 </div>
+                 <div class="comment-content">
+                       <h1>${comment.content}</h1>
+
+
+                 </div>
+            </div>
+            `
+          });
+       }else{
+             productCommentsDiv.innerHTML=``;
+            productCommentsDiv.innerHTML+=`
+                <h1>no commements</h1>
+            `;
+       }
+
+
+}

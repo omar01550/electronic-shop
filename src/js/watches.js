@@ -1,6 +1,7 @@
 let watchesSecction = document.querySelector(".products"); // product container
 getWatchesFromDb();
 // **** functions ****
+
 //create watch card html
 function createProductWatch(id,img,title,color,price) {
   let product = `

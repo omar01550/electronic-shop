@@ -1,5 +1,6 @@
 let popularMobiles = document.querySelector(".popular-mobiles .container") ;// popular mobiles section in home page
 let popularwatches = document.querySelector(".popular-watches .container") ;// popular watches section  in home page
+let popularLoder=document.querySelector(".popular-loder")
 getMobilesFromDb(); //get mobiles from data base
 getWatchesFromDb(); //get watches from data base
 mobilesSectionScrolling() //
@@ -80,13 +81,19 @@ function clickOnProduct() {
 }
 //get mobiles feom data base
 async function getMobilesFromDb() {
+    popularLoder.classList.remove("hidden");
     let response =  await fetch(`https://omarapp-72ea1-default-rtdb.firebaseio.com/products/mobiles.json`);
     let mobiles = await response.json()  ;
 
+    if (response.status>=300 || response.status <200) {
+        console.log("response not load "+response.status);
+    }else{
+      popularLoder.classList.add("hidden");
+    }
     mobiles.forEach((mobile, i) => {
-      popularMobiles.innerHTML+=createProductMobile(i,mobile.image,mobile.name,mobile.brand,mobile.storage,mobile.ram,mobile.color,mobile.price);
+          popularMobiles.innerHTML+=createProductMobile(i,mobile.image,mobile.name,mobile.brand,mobile.storage,mobile.ram,mobile.color,mobile.price);
 
-});
+    });
 
   clickOnProduct()
 
@@ -111,6 +118,12 @@ function mobilesSectionScrolling() {
   let arrowLeft = document.querySelector(".popular-mobiles .arrow-left");
   let arrowRight = document.querySelector(".popular-mobiles .arrow-right");
   arrowLeft.addEventListener("click",function () {
+      arrowLeft.style.backgroundColor=`var(--main-color)`;
+      arrowLeft.style.color=`white`;
+      setTimeout(function () {
+         arrowLeft.style.backgroundColor=`rgba(0,0,0,0.3)`;
+         arrowLeft.style.color=`var(--text-color)`;
+      }, 50);
 
       popularMobilesSection.scrollTo({
          left:popularMobilesSection.scrollLeft-350,
@@ -119,6 +132,14 @@ function mobilesSectionScrolling() {
   })
 
   arrowRight.addEventListener("click",function () {
+    arrowRight.style.backgroundColor=`var(--main-color)`;
+    arrowRight.style.color=`white`;
+
+    setTimeout(function () {
+       arrowRight.style.backgroundColor=`rgba(0,0,0,0.3)`;
+       arrowRight.style.color=`var(--text-color)`;
+    }, 50);
+
     popularMobilesSection.scrollTo({
        left:popularMobilesSection.scrollLeft+350,
        top:0
@@ -231,8 +252,7 @@ user.addEventListener("click",function () {
 
 
 // hadel userIcon
-
-window.addEventListener("load",function () {
+function handelUserIcon() {
   if (localStorage.login == "true") {
       userCase.innerHTML=`
           <p class="logout-btn">logout</p>
@@ -245,9 +265,10 @@ window.addEventListener("load",function () {
 
   let logOutBtn = document.querySelector(".user-case >*");
   logOutBtn.addEventListener("click",logOut)
-  
-})
 
+}
+
+handelUserIcon();
 // logOut
 
 function logOut() {
