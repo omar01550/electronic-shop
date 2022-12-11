@@ -77,6 +77,7 @@ registForm.addEventListener("submit",function (e) {
           userFound(formEmail,formPassword).then((userCase) => {
                   if (userCase== false) {
                        doRedister(formUserName,formEmail,formPassword);
+                       localStorage.userName=formUserName.value;
                     }else{
                     alert("the user is alerdy found")
                   }
@@ -99,6 +100,7 @@ fetch(`https://omarapp-72ea1-default-rtdb.firebaseio.com/users.json`).then((resp
     addUser(users,user)
     localStorage.login=true,
     localStorage.electonicToken=users.indexOf(user);
+
     console.log("done");
 
 
