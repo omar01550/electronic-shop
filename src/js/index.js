@@ -89,8 +89,10 @@ async function getMobilesFromDb() {
     }else{
       popularLoder.classList.add("hidden");
     }
+
+    popularMobiles.innerHTML="";
     mobiles.forEach((mobile, i) => {
-          popularMobiles.innerHTML+=createProductMobile(i,mobile.image,mobile.name,mobile.barnd,mobile.storage,mobile.ram,mobile.color,mobile.price);
+          popularMobiles.innerHTML+=createProductMobile(i,mobile.image,mobile.name,mobile.brand,mobile.storage,mobile.ram,mobile.color,mobile.price);
 
     });
 
@@ -102,8 +104,10 @@ async function getMobilesFromDb() {
 async function getWatchesFromDb() {
   let response =  await fetch(`https://omarapp-72ea1-default-rtdb.firebaseio.com/products/watches.json`);
   let watches = await response.json()  ;
+  popularwatches.innerHTML='';
   watches.forEach((watch, i) => {
-    popularwatches.innerHTML+=createProductWatch(i,watch.image,watch.title,watch.color,watch.price) ;
+    popularwatches.innerHTML+=createProductWatch(i,watch.image,watch.brand,watch.color,watch.price) ;
+    console.log(watch);
 
   });
 

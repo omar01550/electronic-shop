@@ -1,0 +1,305 @@
+/* home section */
+
+
+section.home{
+  width: 100%;
+  min-height: 80vh;
+  background-image: url('../puplic/images/offer10.jpg');
+  backgrou`nd-repeat: no-repeat;
+  background-size: cover;
+  margin-top:-1px;
+}
+
+/*end home section */
+.categories{
+   width: 100%;
+   min-height: 60vh;
+   display: flex;
+   justify-content: center;
+}
+
+
+.categories .image{
+   position: relative;
+   height: 400px;
+   cursor: pointer;
+   overflow: hidden;
+   margin: 0;
+
+}
+
+.categories .image:hover img{
+    transform: scale(1.1);
+}
+
+.categories img{
+   width: 100%;
+   transition: 500ms ease-in-out;
+
+}
+
+.categories .image .overlay{
+   position: absolute;
+   width: 100%;
+   height: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   color: white;
+   flex-direction: column;
+   text-transform: capitalize;
+   font-size:1.3rem;
+   z-index:1000;
+   background-color: rgba(0,0,0,0.3);
+}
+
+.categories .image .overlay a{
+   color: white;
+   font-size: 1rem;
+}
+
+.left-images{
+   display: flex;
+   justify-content: ;
+   flex-direction: column;
+   width: 50%;
+}
+
+.left-images .image{
+   width: 100%;
+   height:200px;
+   overflow: hidden;
+   padding: 0;
+}
+
+.left-images .image img{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin:0;
+
+}
+
+@media (max-width:767px) {
+     .categories{
+        flex-direction: column;
+     }
+
+     .left-images{
+        width: 100%
+     }
+}
+
+/* start popular mobiles */
+.popular-loder{
+   position: absolute;
+   width: 100%;
+   height:100%;
+   z-index:100000
+
+}
+
+.inner-loder{
+    border: 3px solid var(--main-color);
+    border-bottom-color: transparent;
+    border-radius:50%;
+    width:60px;
+    height: 60px;
+}
+
+
+ .popular-mobiles{
+    width: 100%;
+    position: relative;
+    background-color: var(--main-bg);
+    margin-top:-15px;
+
+ }
+
+ .popular-mobiles .container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 50px ;
+    padding-bottom: 50px;
+    overflow: scroll;
+    position: relative;
+ }
+
+ .container::-webkit-scrollbar{
+      display: none;
+
+ }
+
+ .container::-webkit-scrollbar-thumb{
+    display: none;
+ }
+
+ .arrow{
+     position: absolute;
+     cursor: pointer;
+     font-size: 2rem;
+      top: 60%;
+      z-index: 100000;
+      width:60px;
+      height: 60px;
+      background-color: var(--main-color);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 50%;
+      color: white;
+ }
+
+
+
+     .arrow-left{
+        left:50px;
+        z-index: 10000;
+     }
+
+     .arrow-right{
+        right:50px;
+        z-index: 10000;
+     }
+
+  .product{
+      background-color: var(--product-bg);
+      color: var(--text-color);
+  }
+
+ .mobile{
+    width:300px;
+    min-height: 500px;
+    position: relative;
+    margin:30px;
+    cursor: pointer;
+    transition: 300ms;
+    color: var(--text-color);
+
+  }
+
+  .real-price{
+       display: flex;
+       justify-content: center;
+       align-items: center;
+  }
+  .real-price small{
+     margin-left:3px;
+  }
+
+ .popular-mobiles .container .mobile:hover{
+      box-shadow: 2px 2px 2px 2px #f0f0f0,-2px -2px 2px 2px #f0f0f0;
+      transform: scale(1.1);
+ }
+   .mobile img{
+      width: 300px;
+      height: 300px;
+  }
+
+  .details{
+     text-align: center;
+
+  }
+
+  .details span,small{
+     display: block;
+  }
+
+
+  .details h1{
+        font-weight: bold;
+        text-transform: uppercase;
+
+
+  }
+
+  .details .brand{
+     color: grey;
+  }
+
+  .add-to-cart{
+     width: 100%;
+     background-color: var(--main-color);
+     color: white;
+     padding: 15px 0;
+     margin-top: 20px;
+     border:none;
+     display: flex;
+     justify-content: space-around;
+     align-items: center;
+     font-size:1.5rem;
+     cursor: pointer;
+     position: relative;
+  }
+
+
+
+ .add-to-cart .fa-shopping-cart{
+    color: white
+ }
+  .add-to-cart:hover{
+     opacity: 70%;
+  }
+
+
+/* end popular mobiles */
+
+
+/* start popular watches  */
+  .popular-watches{
+     width: 100%;
+     position: relative;
+     background-color: var(--main-bg);
+  }
+
+  .popular-watches .arrow{
+       top:70%;
+  }
+
+  .popular-watches > img{
+     width:100%;
+  }
+
+/* end popular watches  */
+.popular-watches{
+   width: 100%;
+}
+.popular-watches .container{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 50px ;
+  padding-bottom: 50px;
+  overflow: scroll;
+  position: relative;
+
+}
+
+.watch{
+  width:300px;
+  min-height: 500px;
+  position: relative;
+  margin:30px;
+  cursor: pointer;
+  transition: 300ms;
+  margin: 30px;
+}
+
+.watches-page .watch{
+    margin-left: -30px;
+}
+.popular-watches .container .watch:hover{
+     box-shadow: 2px 2px 2px 2px #f0f0f0,-2px -2px 2px 2px #f0f0f0;
+     transform: scale(1.1);
+}
+ .popular-watches .container .watch img{
+     width: 300px;
+     height: 300px;
+
+ }
+
+ .watch-image{
+    width: 300px;
+    height: 300px;
+ }

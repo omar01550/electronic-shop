@@ -1,13 +1,16 @@
-let count =1;
-// get all products by id and type
-  //to get username;
+getProduct();
+
+
+// functions ****************  **** ******
+
+// getProduct function
 async function getProduct() {
     let response = await fetch(`https://omarapp-72ea1-default-rtdb.firebaseio.com/products/${localStorage.type}/${localStorage.currentId}.json`);
     let data = await response.json();
      handelDetails(data);
-     AddToCart(data) //handel add to cart
+     AddToCart(data)
 }
-getProduct()
+
 
 //handel details inner sections
 function handelDetails (data) {
@@ -29,53 +32,39 @@ function handelDetails (data) {
   `
 
 
-  // handel counter
-
-  let productsCountElement = document.querySelector(".count");
-
-  let increment = document.querySelector(".increment");
-  let decrement = document.querySelector(".decrement");
-
-  increment.addEventListener("click",function () {
-       count++;
-       productsCountElement.innerHTML=count;
-       productPrice.innerHTML=count*data.price;
-
-  })
-  decrement.addEventListener("click",function () {
-    if (count>=1) {
-      count--;
-      productsCountElement.innerHTML=count;
-      productPrice.innerHTML=count*data.price;
-    }
-
-  })
+  // handel
 
 }
 
+// add to cart function
 
-//handelcart
 function AddToCart(product) {
-    let cartData = [] ;
-    if (localStorage.cartElectronicProducts) {
-        cartData=JSON.parse(localStorage.cartElectronicProducts);
+    let allCartData = [];
+    if (localStorage.cartElectronicProducts != undefined && localStorage.cartElectronicProducts !=null && localStorage.cartElectronicProducts != 'undefined'  ) {
+         allCartData=JSON.parse(localStorage.cartElectronicProducts);
     }
 
-     let count=1;
-    let addToCart = document.querySelector(".add-to-cart");
-    addToCart.addEventListener("click",function () {
-        for(let i=0;i<count;i++){
-             cartData.push(product);
-        }
-
-
-        localStorage.cartElectronicProducts=JSON.stringify(cartData);
-        handelCartCount();
+    let addToCartBtn = document.querySelector(".add-to-cart");
+    addToCartBtn.addEventListener("click",function () {
+       addItemToCartArray(product,allCartData);
     })
+
 }
 
-// count of products  in cart
-
+function addItemToCartArray(product,allCartData) {
+      if (allCartData.filter(ele => ele.id == product.id ).length ==0) {
+          console.log("not found product"      );
+          allCartData.push({...product,count:1});
+          localStorage.cartElectronicProducts=JSON.stringify(allCartData);
+      }else{
+         for(let i=0;i<allCartData.length;i++){
+            if (allCartData[i].id == product.id) {
+                allCartData[i].count+=1;
+                localStorage.cartElectronicProducts=JSON.stringify(allCartData);
+            }
+         }
+      }
+}
 
 //************* comments section **********************
 // fuction that atke all comment after update and push to data base;
@@ -191,7 +180,7 @@ function uiComment(comments){
                    <i class="fa fa-user"></i>
                    <span class="commrnt-user-name">${comment.userName}</span>
                    <div class="comment-date">
-                       <span>${commentDate.getDate()-1}</span>/
+                       <span>${commentDate.getDate()}</span>/
                        <span>${commentDate.getMonth()+1}</span>/
                        <span>${commentDate.getFullYear()}</span>
                    </div>

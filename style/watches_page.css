@@ -1,0 +1,59 @@
+main.watches-page{
+   width: 100%;
+   min-height: 100vh;
+   padding:50px 20px;
+
+
+
+}
+
+
+main.watches-page .products{
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+main.watches-page .products .product{
+  margin-left:40px;
+
+}
+.watches-page .watch{
+    margin-left: -30px;
+}
+.popular-watches .container .watch:hover{
+     box-shadow: 2px 2px 2px 2px #f0f0f0,-2px -2px 2px 2px #f0f0f0;
+     transform: scale(1.1);
+}
+ .popular-watches .container .watch img{
+     width: 300px;
+     height: 300px;
+
+ }
+
+ .watch-image{
+    width: 300px;
+    height: 300px;
+ }
+
+
+
+@media (max-width:767px) {
+  main.watches-page .products{
+
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex-direction: column;
+      flex-wrap: wrap;
+
+  }
+
+  main.watches-page .products .product{
+    margin-left:0px;
+
+  }
+
+}

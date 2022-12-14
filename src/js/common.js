@@ -1,3 +1,5 @@
+
+
 let themeToggler = document.querySelector(".theme-toggler");
 let user = document.querySelector(".user");
 let userCase = document.querySelector(".user-case");
@@ -64,7 +66,7 @@ function themeColors() {
       break;
 
       case "dark":
-           document.documentElement.style.setProperty("--main-bg","rgba(16, 7, 39, 0.93)");
+           document.documentElement.style.setProperty("--main-bg","rgba(30, 32, 41, 1)");
            document.documentElement.style.setProperty("--text-color","white");
            document.documentElement.style.setProperty("--product-bg","rgba(4, 4, 44, 0.8)");
 

@@ -1,0 +1,30 @@
+footer{
+    width: 100%;
+    background-color: var(--main-color);
+    color: white;
+  }
+
+  footer .container{
+      padding-top: 90px;
+      padding-bottom: (3)0px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+  }
+
+
+footer .container ul{
+   display: flex;
+   justify-content: space-between;
+}
+
+footer .container ul li{
+   margin-right: 30px;
+}
+
+footer a{
+   color: var(--text-color);
+   font-weight: bold;
+   font-size:1.3rem;
+}

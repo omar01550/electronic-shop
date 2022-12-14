@@ -1,0 +1,173 @@
+header{
+   border-bottom: 1px solid #f0f0f0;
+
+}
+
+nav{
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+    padding-top:10px;
+    padding-bottom: 10px;
+    background-color: var(--main-bg);
+
+}
+
+header nav > ul{
+    width:50%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    z-index:10000;
+    transition: 1s;
+}
+
+header nav ul{
+   position: relative;
+}
+
+header nav ul li:hover a{
+
+    cursor: pointer;
+}
+
+header nav ul li:hover .product-types{
+    display: flex;
+}
+
+header nav ul li a{
+   color: var(--text-color);
+   font-size: 1.2rem;
+}
+
+
+/* product -types */
+ul.product-types{
+     padding:10px;
+     background-color: white;
+     color: var(--text-color);
+     display: none;
+     flex-direction: column;
+     position: absolute;
+     left: 40%;
+     bottom: -530%;
+     box-shadow: 2px 2px 2px 2px #f0f0f0;
+     min-width:200px;
+
+}
+
+ul.product-types li{
+   margin-top:20px;
+}
+
+.header-right{
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   font-size:1.3rem;
+
+}
+
+.header-right > *{
+    margin-right: 15px;
+    cursor: pointer
+}
+
+.header-right a{
+    color: var(--text-color);
+ }
+
+.header-right span.cart-title{
+    font-size: 1rem;
+}
+
+.header-right .user{
+   position: relative;
+   color: var(--text-color);
+}
+.header-right .user-case{
+   position: absolute;
+   z-index:1000;
+   padding: 10px 30px;
+   background-color: white;
+   margin-top:14px;
+   transform: translateX(-40px);
+}
+
+
+.search{
+   margin-right:  30px;
+}
+.fa-cart-shopping{
+   cursor: pointer;
+   color: var(--text-color);
+}
+.logo{
+   text-transform: uppercase;
+   color: var(--text-color);
+   font-weight: bold;
+   font-size: 1.6rem;
+}
+
+.menu-toggler{
+   display: none;
+   cursor: pointer;
+   font-size:1.3rem;
+   color: var(--text-color);
+}
+.theme-toggler{
+   color: var(--text-color);
+}
+
+/* header media */
+@media (max-width:767px) {
+     .container{
+        padding-left: 10px;
+        padding-right: 10px;
+  }
+
+  /* main ul */
+  header nav > ul{
+      flex-direction: column;
+      position: absolute;
+      left:0;
+      top:70px;
+      width:100%;
+      min-height: 50vh;
+      background-color: var(--main-color);
+
+  }
+
+  header nav > ul li a {
+    color: white;
+  }
+
+  header nav > ul li a:hover{
+     color:gray;
+  }
+
+  .cart-title{
+     display: none;
+  }
+
+  .menu-toggler{
+     display: block;
+  }
+  .fa-search{
+     margin-right: 10px;
+  }
+}
+/* header media */
+
+
+
+/* ipone 12 media */
+@media(max-width:361px){
+  nav.container{
+     padding-left: 4px;
+     padding-right: 4px
+  }
+
+
+
+}

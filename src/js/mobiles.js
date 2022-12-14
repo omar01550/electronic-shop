@@ -39,8 +39,10 @@ async function getMobilesFromDb() {
     let response =  await fetch(`https://omarapp-72ea1-default-rtdb.firebaseio.com/products/mobiles.json`);
     let mobiles = await response.json()  ;
 
+     mobilesSection.innerHTML='';
+
     mobiles.forEach((mobile, i) => {
-          mobilesSection.innerHTML+=createProductMobile(i,mobile.image,mobile.name,mobile.brand,mobile.storage,mobile.ram,mobile.color,mobile.price);
+          mobilesSection.innerHTML+=createProductMobile(i,mobile.image,mobile.name,mobile.barnd,mobile.storage,mobile.ram,mobile.color,mobile.price);
   });
 
   clickOnProduct();

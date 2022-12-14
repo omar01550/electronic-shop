@@ -1,0 +1,30 @@
+:root{
+   --main-color:rgba(39, 50, 245, 0.8);
+   --text-color:black;
+   --main-bg:white;
+   --product-bg:rgba(4, 4, 44, 0.8);
+}
+
+/* fonts */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200;300;400;500;600;700;800;900;1000&display=swap');
+
+*{
+   padding:0;
+   margin:0;
+   box-sizing: border-box;
+   scroll-behavior: smooth;
+}
+
+body{
+   font-size: 16px;
+   font-family: Cairo;
+
+   }
+
+ul{
+   list-style: none
+}
+
+a{
+   text-decoration: none;
+}

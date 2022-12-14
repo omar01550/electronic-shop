@@ -1,24 +1,13 @@
 let productsSection = document.querySelector(".cart-page .products");
+
 let allProducts = [];
-
-
 
 if (localStorage.cartElectronicProducts) {
   allProducts=JSON.parse(localStorage.cartElectronicProducts);
+  allProducts.innerHTML='';
   allProducts.forEach((product, i) => {
-      productsSection.innerHTML+=`
-      <div class="cart-item">
-          <div class="content">
-               <h2 class="cart-name">the name</h2>
-               <h3 class="cart-brand">the brand</h3>
-          </div>
 
-          <div class="image">
-
-          </div>
-      </div>
-
-      `;
+      productsSection.innerHTML+=createCartItem(product)
 
   });
 
@@ -28,27 +17,52 @@ if (localStorage.cartElectronicProducts) {
 }
 
 
+function createCartItem(product) {
+    return (
+      `
+      <div class="cart-item">
+           <div class="left">
+                <div class="cart-item-image">
+                     <img src=${product.image} alt="not found">
+                </div>
 
-function handelCartCount() {
-    let cartCount = document.querySelector(".cart-count");
-    cartCount.innerHTML=localStorage.cartElectronicProducts?JSON.parse(localStorage.cartElectronicProducts).length:0;
+                <div class="counter">
+                    <button type="button" name="button" class="increment">+</button>
+                    <input type="number" name="" class="count-items" value=${product.count}>
+                    <button type="button" name="button" class="decrement">-</button>
+                </div>
+           </div>
+
+
+           <div class="right">
+                 <h2 class="cart-item-title">${product.name}</h2>
+                 <div class="price">
+                      <table>
+                          <tr>
+                             <td class="key">price of one</td>
+                             <td class="price-one value">${product.price}</td>
+                          </tr>
+
+                          <tr>
+                             <td class="key">total price</td>
+                             <td class="total-price value">${product.price*product.count}</td>
+                          </tr>
+
+
+                          <tr>
+                             <td class="key">color</td>
+                             <td class="color value">${product.color}</td>
+                          </tr>
+
+
+
+                      </table>
+
+                      <button type="button" name="button" class="delete-item">delete</button>
+
+                 </div>
+           </div>
+      </div>
+      `
+    )
 }
-
-handelCartCount()
-
-
-function handelUl() {
-    let navUl = document.querySelector("header nav ul");
-    if (window.screen.availWidth <= 767) {
-        navUl.classList.add("hidden");
-    }else{
-       navUl.classList.remove("hidden");
-    }
-
-    menuToggler = document.querySelector(".menu-toggler");
-    menuToggler.addEventListener("click",function () {
-        navUl.classList.toggle("hidden");
-    });
-}
-
-window.addEventListener("load",handelUl);

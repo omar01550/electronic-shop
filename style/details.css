@@ -1,0 +1,188 @@
+.details-page{
+    width: 100%;
+    background-color: var(--main-bg);
+}
+
+.details-page > .container{
+
+    padding-top: 30px;
+    padding-bottom: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+
+
+}
+
+.details-page .images{
+     width: 300px;
+     height: 300px;
+     position: relative;
+     overflow: hidden;
+     margin-left: auto;
+     margin-right: auto;
+
+}
+
+.details-page .images img{
+     width: 300px;
+     height: 300px;
+     position: absolute;
+     transition: 500ms;
+     cursor: pointer;
+
+}
+
+
+.details-page .images img:hover{
+    transform: scale(1.3);
+}
+
+.details-page .product-name{
+     color: var(--text-color);
+     text-align: center;
+     margin-top: 10px;
+}
+
+table{
+   margin-top:10px;
+   margin-right: auto;
+   margin-left: auto;
+   width:300px;
+   background-color: var(--text-color)
+}
+
+
+table td{
+
+   font-size: 1.2rem;
+   padding: 10px;
+   outline: none;
+  color: white;
+   border:1px solid white
+}
+table .key{
+   background-color: var(--main-color)
+
+
+}
+
+table .value{
+   background-color: var(--main-color);
+   opacity: 90%
+
+}
+
+.counter{
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+
+}
+
+
+.counter button{
+    padding: 7px;
+    cursor: pointer
+
+}
+
+
+.product-price{
+   text-align: center;
+   margin-top:10px;
+   color: var(--text-color);
+}
+
+.details-page .add-to-cart{
+    width:300px;
+    margin-right: auto;
+    margin-left: auto
+}
+.comments{
+   padding:20px;
+   width: 80%;
+
+}
+
+.comments form{
+   display: flex;
+   justify-content: start;
+   align-items: center;
+   width:70%;
+
+}
+
+.comments #comment-text{
+     padding:10px;
+     border-radius: 5px;
+     border:1px solid var(--main-color);
+}
+
+.comments #comment-text:focus{
+     outline: 2px solid var(--main-color);
+     border-radius: 5px;
+}
+
+.comments #send{
+   background-color: var(--main-color);
+   color: white;
+   font-size: 1.3rem;
+   padding: 10px 20px;
+   border:1px solid white;
+   margin-left: 20px;
+   border-radius: 5px;
+   cursor: pointer;
+
+}
+
+
+
+.comment{
+    background-color: var(--main-color);
+    margin-top: 10px;
+    color: white;
+    padding: 20px;
+    border-radius: 5px;
+    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+}
+
+.comment-info{
+   display: flex;
+   justify-content: start;
+   align-items: center;
+
+
+}
+
+.comment-date{
+   margin-left:20px;
+}
+
+
+/* comments media  */
+@media (max-width:767px) {
+
+    .comments form{
+       transform: translateX(-40px);
+    }
+
+    .comments{
+         width: 100%;
+         position:relative;
+         font-size:0.9rem
+
+    }
+
+    .comments .container{
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .comment{
+       width:100%;
+    }
+}
