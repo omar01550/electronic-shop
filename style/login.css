@@ -1,9 +1,36 @@
+.user-case{
+   padding: 20px !important;
+   background-color: var(--main-bg);
+   background-color: red;
+   z-index:10000000;
+
+}
+
+.login-btn,.logout-btn{
+    padding: 7px 14px;
+    border-radius: 5px;
+    background-color: var(--main-color);
+    cursor: pointer;
+    color: white;
+
+}
+
+
+.logout-btn{
+   border: none;
+   font-size:1.2rem
+
+}
+
+
 main.sign-page{
    width:100%;
    min-height: 100vh;
    display: flex;
    justify-content: center;
    align-items: center;
+   background-color: var(--main-bg);
+
 }
 
 /* sign card  */
@@ -30,6 +57,11 @@ main.sign-page .sign-card .routes{
 
 main.sign-page .sign-card .routes li{
    cursor: pointer;
+   color: black
+}
+
+main.sign-page .sign-card .routes li.active-section{
+   color: white
 }
 
 .sign-content .register,.login{

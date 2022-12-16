@@ -145,7 +145,6 @@ table .value{
     color: white;
     padding: 20px;
     border-radius: 5px;
-    overflow: scroll;
     display: flex;
     flex-direction: column;
 }

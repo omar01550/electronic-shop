@@ -16,15 +16,15 @@ handelCartCount()
 function handelUl() {
     let navUl = document.querySelector("header nav ul");
     if (window.screen.availWidth <= 767) {
-        navUl.classList.add("hidden");
+        navUl.classList.add("hidden-nav");
     }else{
-       navUl.classList.remove("hidden");
+       navUl.classList.remove("hidden-nav");
     }
 
     let menuToggler = document.querySelector(".menu-toggler");
 
     menuToggler.addEventListener("click",function () {
-        navUl.classList.toggle("hidden");
+        navUl.classList.toggle("hidden-nav");
     });
 }
 
@@ -63,12 +63,14 @@ function themeColors() {
             document.documentElement.style.setProperty("--main-bg","white");
             document.documentElement.style.setProperty("--text-color","black");
             document.documentElement.style.setProperty("--product-bg","white");
+            document.documentElement.style.setProperty("--footer-bg","var(--main-color)");
       break;
 
       case "dark":
-           document.documentElement.style.setProperty("--main-bg","rgba(30, 32, 41, 1)");
+           document.documentElement.style.setProperty("--main-bg","hsl(216, 53%, 9%)");
            document.documentElement.style.setProperty("--text-color","white");
            document.documentElement.style.setProperty("--product-bg","rgba(4, 4, 44, 0.8)");
+           document.documentElement.style.setProperty("--footer-bg","hsl(216, 53%, 9%)");
 
       break;
       default:
@@ -95,11 +97,11 @@ user.addEventListener("click",function () {
 function handelUserIcon() {
   if (localStorage.login == "true") {
       userCase.innerHTML=`
-          <p class="logout-btn">logout</p>
+          <button class="logout-btn">logout</button>
       `;
   }else{
     userCase.innerHTML=`
-        <a href="login.html">login</a>
+        <a href="login.html" class="login-btn">login</a>
     `;
   }
 

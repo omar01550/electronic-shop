@@ -1,7 +1,12 @@
 footer{
     width: 100%;
-    background-color: var(--main-color);
+    background-color: var(--footer-bg);
     color: white;
+  }
+
+  footer > *{
+     color: white
+
   }
 
   footer .container{

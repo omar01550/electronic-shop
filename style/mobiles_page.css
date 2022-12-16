@@ -31,6 +31,7 @@
    width: 300px;
    height: 300px;
    background-color: #d9d9d9;
+   animation: card-load 2s 0s infinite ease;
 
 }
 .test h1{
@@ -40,6 +41,7 @@
    margin-top:20px;
    background-color: #d9d9d9;;
    border-radius: 5px;
+   animation: card-load 2s 0s infinite ease;
 }
 
 .test small,.test span{
@@ -50,8 +52,22 @@
    background-color: #d9d9d9;;
    margin-top:10px;
    border-radius: 10px;
+   animation: card-load 2s 0s infinite ease;
 }
 
 .test .add-to-cart{
    background-color: white;
+   animation: card-load 2s 0s infinite ease;
+}
+
+
+
+@keyframes card-load {
+    0%{
+       background-color: white;
+    }
+
+    100%{
+       background-color: #d9d9d9;
+    }
 }

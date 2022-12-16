@@ -1,7 +1,6 @@
 let productsSection = document.querySelector(".cart-page .products");
 
 let allProducts = [];
-
 if (localStorage.cartElectronicProducts) {
   allProducts=JSON.parse(localStorage.cartElectronicProducts);
   allProducts.innerHTML='';
@@ -13,14 +12,14 @@ if (localStorage.cartElectronicProducts) {
 
   console.log("found");
 }else{
-   productsSection.innerHTML=`<h1>your cart is empty</h1>`;
+   productsSection.innerHTML=`<h1 class="cart-empty-msg">your cart is empty</h1>`;
 }
 
 
 function createCartItem(product) {
     return (
       `
-      <div class="cart-item">
+      <div class="cart-item" id=${product.id}>
            <div class="left">
                 <div class="cart-item-image">
                      <img src=${product.image} alt="not found">
@@ -64,5 +63,86 @@ function createCartItem(product) {
            </div>
       </div>
       `
-    )
+    );
+
+};
+
+
+// increment and decrement
+let allIncrementBtns = document.querySelectorAll('.counter .increment');
+let allDecrementBtns = document.querySelectorAll('.counter .decrement');
+let allInputsCount = document.querySelectorAll(".counter input") ;
+let allDeleteItemBtn = document.querySelectorAll(".delete-item");
+console.log(allDeleteItemBtn);
+
+allIncrementBtns.forEach((btn, i) => {
+    btn.addEventListener("click",increment)
+});
+
+allDecrementBtns.forEach((btn, i) => {
+    btn.addEventListener("click",decrement)
+});
+
+allDeleteItemBtn.forEach((btn, i) => {
+    btn.addEventListener("click",deleteItem)
+    btn.addEventListener("click",function () {
+       console.log("clicked")
+    })
+});
+
+
+
+function increment(e) {
+  let id = e.target.parentNode.parentNode.parentNode.id;
+  let parentElement= document.getElementById(id);
+  let input = parentElement.querySelector(`input`)
+
+
+   for(let i=0;i<allProducts.length;i++){
+      if (allProducts[i].id == id) {
+          allProducts[i].count+=1;
+           localStorage.cartElectronicProducts=JSON.stringify(allProducts);
+           input.value = allProducts[i].count;
+           break;
+      }
+   }
+
+}
+
+function decrement(e) {
+  let id = e.target.parentNode.parentNode.parentNode.id;
+  let parentElement= document.getElementById(id);
+  let input = parentElement.querySelector(`input`)
+
+
+   for(let i=0;i<allProducts.length;i++){
+      if (allProducts[i].id == id) {
+          allProducts[i].count-=1;
+           localStorage.cartElectronicProducts=JSON.stringify(allProducts);
+           input.value = allProducts[i].count;
+           break;
+      }
+   }
+
+}
+
+function deleteItem(e) {
+   let id = e.target.parentNode.parentNode.parentNode.id;
+    allProducts = allProducts.filter(ele => ele.id != id);
+    localStorage.cartElectronicProducts=JSON.stringify(allProducts);
+    productsSection.innerHTML='';
+
+    if (localStorage.cartElectronicProducts != undefined) {
+        JSON.parse(localStorage.cartElectronicProducts).forEach((product, i) => {
+             productsSection.innerHTML+=createCartItem(product)
+        });
+
+    }else{
+      alert("the cart is empty");
+    }
+
+
+
+
+
 }

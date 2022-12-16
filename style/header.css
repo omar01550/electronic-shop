@@ -1,6 +1,6 @@
 header{
    border-bottom: 1px solid #f0f0f0;
-
+   z-index: 10000000;
 }
 
 nav{
@@ -20,7 +20,9 @@ header nav > ul{
     align-items: center;
     z-index:10000;
     transition: 1s;
+
 }
+
 
 header nav ul{
    position: relative;
@@ -121,9 +123,9 @@ ul.product-types li{
 
 /* header media */
 @media (max-width:767px) {
-     .container{
-        padding-left: 10px;
-        padding-right: 10px;
+     nav.container{
+        padding-left: 5px;
+        padding-right: 5px;
   }
 
   /* main ul */
@@ -136,6 +138,10 @@ ul.product-types li{
       min-height: 50vh;
       background-color: var(--main-color);
 
+  }
+
+  .hidden-nav{
+    left:-100%;
   }
 
   header nav > ul li a {

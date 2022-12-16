@@ -11,31 +11,34 @@ watchesSectionScrolling();
 // **** functions ****
 
 // create mobile html card
-function createProductMobile(id,img,title,brand,storage,ram,color,price) {
-      let product = `
-                <div class="mobile product" id=${id}>
-                <img src=${img} alt="not found image" class="mobile-image">
-                <div class="details">
-                    <h1 class="mobile-title">${title}</h1>
-                    <small class="brand">${brand}</small>
-                    <span class="storage">storage ${storage} gb</span>
-                    <span class="ram">ram ${ram} gb</span>
-                    <span>color ${color}</span>
-                    <div class="price">
-                        <h3 class="real-price">${price} <small>EGP</small></h3>
-                        <span>discount 0 egp</span>
+function createProductMobile(product) {
 
-                    </div>
-                    <button type="button" name="button" class="add-to-cart">
-                           <span>add to cart</span>
-                           <i class="fa fa-cart-shopping"></i>
-                    </button>
-                </div>
-
-          </div>
-
+    return(
       `
-      return product;
+        <div class="mobile product" id=${product.id}>
+              <img src=${product.image} alt="not found image" class="mobile-image">
+              <div class="details">
+                  <h1 class="mobile-title">${product.name}</h1>
+                  <small class="brand">${product.barnd}</small>
+                  <span class="storage">storage ${product.storage} gb</span>
+                  <span class="ram">ram ${product.ram} gb</span>
+                  <span>color ${product.color}</span>
+                  <div class="price">
+                      <h3 class="real-price">${product.price} <small>EGP</small></h3>
+                      <span>discount 0 egp</span>
+
+                  </div>
+                  <button type="button" name="button" class="add-to-cart">
+                         <span>add to cart</span>
+                         <i class="fa fa-cart-shopping"></i>
+                  </button>
+              </div>
+
+        </div>
+
+    `
+    )
+
 }
 // create watch html card
 function createProductWatch(id,img,title,color,price) {
@@ -92,7 +95,7 @@ async function getMobilesFromDb() {
 
     popularMobiles.innerHTML="";
     mobiles.forEach((mobile, i) => {
-          popularMobiles.innerHTML+=createProductMobile(i,mobile.image,mobile.name,mobile.brand,mobile.storage,mobile.ram,mobile.color,mobile.price);
+          popularMobiles.innerHTML+=createProductMobile(mobile);
 
     });
 
