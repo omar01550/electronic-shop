@@ -174,15 +174,18 @@ section.home{
       color: var(--text-color);
   }
 
- .mobile{
-    width:300px;
-    min-height: 500px;
-    position: relative;
-    margin:30px;
-    cursor: pointer;
-    transition: 300ms;
-    color: var(--text-color);
-}
+
+   .mobile{
+      width:250px;
+      min-height: 400px;
+      position: relative;
+      margin:30px;
+      cursor: pointer;
+      transition: 300ms;
+      color: var(--text-color);
+  }
+
+
 
 
 
@@ -200,8 +203,8 @@ section.home{
       transform: scale(1.1);
  }
    .mobile img{
-      width: 300px;
-      height: 300px;
+      width: 250px;
+      height: 250px;
   }
 
   .details{
