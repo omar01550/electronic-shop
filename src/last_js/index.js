@@ -1,39 +1,17 @@
-type product = {
-    id:number,
-    image:string,
-    name:string,
-    storage:number,
-    ram:number,
-    barnd:string,
-    color:string,
-    price:number
-}
-
-type watch={
-  id:number,
-  image:string,
-  name:string,
-  brand:string,
-  color:string,
-  price:number
-}
-
-let popularMobiles = document.querySelector(".popular-mobiles .container") as HTMLElement ;// popular mobiles section in home page
-let popularwatches = document.querySelector(".popular-watches .container") as HTMLElement;// popular watches section  in home page
-let popularLoder=document.querySelector(".popular-loder") as HTMLElement;
+let popularMobiles = document.querySelector(".popular-mobiles .container") ;// popular mobiles section in home page
+let popularwatches = document.querySelector(".popular-watches .container") ;// popular watches section  in home page
+let popularLoder=document.querySelector(".popular-loder")
 getMobilesFromDb(); //get mobiles from data base
 getWatchesFromDb(); //get watches from data base
 mobilesSectionScrolling() //
 watchesSectionScrolling();
-
-
 
 //cart count
 
 // **** functions ****
 
 // create mobile html card
-function createProductMobile(product:product) :string{
+function createProductMobile(product) {
 
     return(
       `
@@ -63,7 +41,7 @@ function createProductMobile(product:product) :string{
 
 }
 // create watch html card
-function createProductWatch(id:string,img:string,title:string,color:string,price:string) :string{
+function createProductWatch(id,img,title,color,price) {
       let product = `
                 <div class="watch product" id=${id}>
                 <img src=${img} alt="not found image" class="mobile-image">
@@ -90,7 +68,7 @@ function createProductWatch(id:string,img:string,title:string,color:string,price
 //when click on any product watch or mobile
 function clickOnProduct() {
   let allProducts = document.querySelectorAll(".product");
-  allProducts.forEach((product) => {
+  allProducts.forEach((product, i) => {
       product.addEventListener("click",function () {
           localStorage.currentId = product.id;
           // check type api
@@ -116,7 +94,7 @@ async function getMobilesFromDb() {
     }
 
     popularMobiles.innerHTML="";
-    mobiles.forEach((mobile:product) => {
+    mobiles.forEach((mobile, i) => {
           popularMobiles.innerHTML+=createProductMobile(mobile);
 
     });
@@ -130,7 +108,7 @@ async function getWatchesFromDb() {
   let response =  await fetch(`https://omarapp-72ea1-default-rtdb.firebaseio.com/products/watches.json`);
   let watches = await response.json()  ;
   popularwatches.innerHTML='';
-  watches.forEach((watch:watch, i:number) => {
+  watches.forEach((watch, i) => {
     popularwatches.innerHTML+=createProductWatch(i,watch.image,watch.brand,watch.color,watch.price) ;
     console.log(watch);
 
@@ -142,9 +120,9 @@ async function getWatchesFromDb() {
 // handel scrolling in mobiles section
 function mobilesSectionScrolling() {
   // handel scrolling in sections
-  let popularMobilesSection = document.querySelector(".popular-mobiles .container") as HTMLElement;
-  let arrowLeft = document.querySelector(".popular-mobiles .arrow-left") as HTMLElement;
-  let arrowRight = document.querySelector(".popular-mobiles .arrow-right") as HTMLElement;
+  let popularMobilesSection = document.querySelector(".popular-mobiles .container");
+  let arrowLeft = document.querySelector(".popular-mobiles .arrow-left");
+  let arrowRight = document.querySelector(".popular-mobiles .arrow-right");
   arrowLeft.addEventListener("click",function () {
       arrowLeft.style.backgroundColor=`var(--main-color)`;
       arrowLeft.style.color=`white`;
@@ -177,9 +155,9 @@ function mobilesSectionScrolling() {
 }
 // handel scroll in popular watches section
 function watchesSectionScrolling() {
-  let popularWatchesSection = document.querySelector(".popular-watches .container") as HTMLElement;
-  let arrowLeftWatches = document.querySelector(".popular-watches .arrow-left") as HTMLElement;
-  let arrowRightWatches = document.querySelector(".popular-watches .arrow-right") as HTMLElement;
+  let popularWatchesSection = document.querySelector(".popular-watches .container");
+  let arrowLeftWatches = document.querySelector(".popular-watches .arrow-left");
+  let arrowRightWatches = document.querySelector(".popular-watches .arrow-right");
   arrowLeftWatches.addEventListener("click",function () {
       popularWatchesSection.scrollTo({
          left:popularWatchesSection.scrollLeft-350,
