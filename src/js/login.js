@@ -34,38 +34,8 @@ function handelActiveSection() {
 }
 handelActiveSection();
 handelRoutes();
-// //sign in
-// let loginForm = document.querySelector(".login-form");
-// let loginEmail = document.querySelector(".login-email");
-// let loginPassword = document.querySelector(".login-password");
-//
-// async function logInFunction(user) {
-//      let found= false;
-//      let response = await fetch(`https://omarapp-72ea1-default-rtdb.firebaseio.com/users.json`);
-//      let users = await response.json();
-//      let currentUser;
-//      for(let i=0;i<users.length;i++){
-//         if (users[i].email == loginEmail.value && users[i].password == loginPassword.value) {
-//              found = true
-//              currentUser=users[i];
-//         }
-//      }
-//
-//     switch (found) {
-//       case true:
-//              localStorage.login=true;
-//              localStorage.electonicToken=users.indexOf(currentUser);
-//              window.location="index.html";
-//         break;
-//       default:
-//       alert("the user not found");
-//
-//     }
-// }
-// loginForm.addEventListener("submit",function(e){
-//    e.preventDefault();
-//    logInFunction();
-// })
+
+
 // register
 let registForm = document.querySelector(".register-form");
 let formUserName = document.querySelector(".register .register-user-name");
