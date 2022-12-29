@@ -19,7 +19,9 @@
    height: 500px;
    margin-top: 70px;
 
-
+}
+.watches-page .watch{
+   margin: 30px;
 }
 
 .test > *{
@@ -63,18 +65,16 @@
 
 
 @media (max-width:767px) {
-    .mobiles-page .products,main.page .products{
-       justify-content: center;
-       align-items: center
 
+    main.page .products{
+       width: 100%;
     }
-
-    .mobiles-page .products,main.page .products .product{
+    main.page .products .product{
        margin-left: 30px;
        margin-top:30px;
     }
 
-    .watches-page .products,main.page .products .product{
+    main.page .products .product{
        margin-left: 30px;
        margin-top:30px;
     }
