@@ -7,7 +7,7 @@ if (localStorage.cartElectronicProducts) {
     allProducts.forEach((product, i) => {
         productsSection.innerHTML += createCartItem(product);
     });
-    console.log("found");
+
 }
 else {
     productsSection.innerHTML = `<h1 class="cart-empty-msg">your cart is empty</h1>`;
@@ -61,60 +61,75 @@ function createCartItem(product) {
 }
 ;
 // increment and decrement
-let allIncrementBtns = document.querySelectorAll('.counter .increment');
-let allDecrementBtns = document.querySelectorAll('.counter .decrement');
-let allInputsCount = document.querySelectorAll(".counter input");
-let allDeleteItemBtn = document.querySelectorAll(".delete-item");
-console.log(allDeleteItemBtn);
-allIncrementBtns.forEach((btn, i) => {
-    btn.addEventListener("click", increment);
-});
-allDecrementBtns.forEach((btn, i) => {
-    btn.addEventListener("click", decrement);
-});
-allDeleteItemBtn.forEach((btn, i) => {
-    btn.addEventListener("click", deleteItem);
-    btn.addEventListener("click", function () {
-        console.log("clicked");
+document.documentElement.addEventListener("click",function (e) {
+     if (e.target.classList.contains("increment")) {
+         let id = e.target.parentNode.parentNode.parentNode.id;
+          increment(id);
+     }
+})
+
+
+
+//decrement card
+
+document.documentElement.addEventListener("click",function (e) {
+     if (e.target.classList.contains("decrement")) {
+         let id = e.target.parentNode.parentNode.parentNode.id;
+          decrement(id);
+     }
+})
+
+//delete
+
+document.documentElement.addEventListener("click",function (e) {
+     if (e.target.classList.contains("delete-item")) {
+         let id = e.target.parentNode.parentNode.parentNode.id;
+          deleteItem(id)
+     }
+})
+
+function increment(id) {
+  for (var i = 0; i < allProducts.length; i++) {
+        if (allProducts[i].id == id) {
+            allProducts[i].count+=1;
+              document.getElementById(id).querySelector("input").value=allProducts[i].count;
+             localStorage.cartElectronicProducts=JSON.stringify(allProducts);
+        }
+  }
+}
+
+function decrement(id) {
+  for (var i = 0; i < allProducts.length; i++) {
+        if (allProducts[i].id == id) {
+            if (allProducts[i].count >= 1) {
+              allProducts[i].count-=1;
+                document.getElementById(id).querySelector("input").value--;
+               localStorage.cartElectronicProducts=JSON.stringify(allProducts);
+            }
+        }
+  }
+}
+
+
+
+
+function deleteItem(id) {
+  for (var i = 0; i < allProducts.length; i++) {
+        if (allProducts[i].id == id) {
+           allProducts = allProducts.filter(ele => ele.id != id);
+           localStorage.cartElectronicProducts=JSON.stringify(allProducts);
+           addCartsToPage();
+
+
+     }
+}
+}
+
+function addCartsToPage() {
+    productsSection.innerHTML='';
+    allProducts.forEach((product, i) => {
+          productsSection.innerHTML+=createCartItem(product);
+
     });
-});
-function increment(e) {
-    let id = e.target.parentNode.parentNode.parentNode.id;
-    let parentElement = document.getElementById(id);
-    let input = parentElement.querySelector(`input`);
-    for (let i = 0; i < allProducts.length; i++) {
-        if (allProducts[i].id == id) {
-            allProducts[i].count += 1;
-            localStorage.cartElectronicProducts = JSON.stringify(allProducts);
-            input.value = allProducts[i].count;
-            break;
-        }
-    }
-}
-function decrement(e) {
-    let id = e.target.parentNode.parentNode.parentNode.id;
-    let parentElement = document.getElementById(id);
-    let input = parentElement.querySelector(`input`);
-    for (let i = 0; i < allProducts.length; i++) {
-        if (allProducts[i].id == id) {
-            allProducts[i].count -= 1;
-            localStorage.cartElectronicProducts = JSON.stringify(allProducts);
-            input.value = allProducts[i].count;
-            break;
-        }
-    }
-}
-function deleteItem(e) {
-    let id = e.target.parentNode.parentNode.parentNode.id;
-    allProducts = allProducts.filter(ele => ele.id != id);
-    localStorage.cartElectronicProducts = JSON.stringify(allProducts);
-    productsSection.innerHTML = '';
-    if (localStorage.cartElectronicProducts != undefined) {
-        JSON.parse(localStorage.cartElectronicProducts).forEach((product, i) => {
-            productsSection.innerHTML += createCartItem(product);
-        });
-    }
-    else {
-        alert("the cart is empty");
-    }
+
 }

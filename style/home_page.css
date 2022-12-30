@@ -203,7 +203,7 @@ section.home{
   }
 
 
-   .mobile{
+   .popular-mobiles .mobile{
       width:250px;
       min-height: 400px;
       position: relative;
@@ -211,8 +211,13 @@ section.home{
       cursor: pointer;
       transition: 300ms;
       color: var(--text-color);
+      font-size:1rem;
   }
 
+
+.popular-mobiles .mobile .mobile-title{
+   font-size: 1.3rem;
+}
 
 
 

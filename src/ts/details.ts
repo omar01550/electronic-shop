@@ -38,8 +38,8 @@ function handelDetails (data) {
 
 // add to cart function
 
-function AddToCart(product) {
-    let allCartData = [];
+function AddToCart(product:object) {
+    let allCartData :object[]= [];
     if (localStorage.cartElectronicProducts != undefined && localStorage.cartElectronicProducts !=null && localStorage.cartElectronicProducts != 'undefined'  ) {
          allCartData=JSON.parse(localStorage.cartElectronicProducts);
     }
@@ -51,7 +51,7 @@ function AddToCart(product) {
 
 }
 
-function addItemToCartArray(product,allCartData) {
+function addItemToCartArray(product:object,allCartData:object[]) {
       if (allCartData.filter(ele => ele.id == product.id ).length ==0) {
           console.log("not found product"      );
           allCartData.push({...product,count:1});
@@ -76,10 +76,6 @@ let commentSound = document.querySelector(".comment-sound");
 console.log(formSubmit);
 let  productCommentsDiv = document.querySelector(".product-comments");
 //function createComment;
-function createComment() {
-
-};
-
 
 function getUser() {
      fetch(`https://omarapp-72ea1-default-rtdb.firebaseio.com/users/${localStorage.electonicToken}.json`).then((response) => {
@@ -93,6 +89,7 @@ function getUser() {
      })
 
 }
+
 function updateCommentsToDataBase(comments) {
    return (fetch(`https://omarapp-72ea1-default-rtdb.firebaseio.com/products/${localStorage.type}/${localStorage.currentId}/comments.json`,{
       method:"PUT",
@@ -103,7 +100,8 @@ function updateCommentsToDataBase(comments) {
       formSubmit.value= "send";
 
    })).catch(() => {
-       alert("comment not puplished")
+       alert("comment not puplished");
+       formSubmit.value= "send";
    })
 
 };
@@ -149,9 +147,6 @@ commentForm.addEventListener("submit",function (e) {
         }else{
            alert("you must be sign")
         }
-
-
-
 
 })
 

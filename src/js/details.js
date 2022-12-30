@@ -1,3 +1,4 @@
+
 "use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
@@ -133,6 +134,7 @@ commentForm.addEventListener("submit", function (e) {
     }
     else {
         alert("you must be sign");
+        formSubmit.value = `...`;
     }
 });
 function displayComments() {

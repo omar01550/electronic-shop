@@ -1,35 +1,27 @@
-type productCart = {
-    id:number,
-    image:string,
-    name:string,
-    storage:number,
-    ram:number,
-    barnd:string,
-    color:string,
-    price:number,
-    count:number
-}
 
 
 let productsSection = document.querySelector(".cart-page .products") as HTMLElement;
 
 let allProducts :[]= [];
-if (localStorage.cartElectronicProducts) {
+
+
+if (localStorage.cartElectronicProducts != undefined && localStorage.cartElectronicProducts != "undefined") {
   allProducts=JSON.parse(localStorage.cartElectronicProducts);
   productsSection.innerHTML='';
+
   allProducts.forEach((product, i:number) => {
 
       productsSection.innerHTML+=createCartItem(product)
 
   });
 
-  console.log("found");
+
 }else{
    productsSection.innerHTML=`<h1 class="cart-empty-msg">your cart is empty</h1>`;
 }
 
 
-function createCartItem(product:productCart) {
+function createCartItem(product:productCart) :string{
     return (
       `
       <div class="cart-item" id=${product.id}>
@@ -39,7 +31,7 @@ function createCartItem(product:productCart) {
                 </div>
 
                 <div class="counter">
-                    <button type="button" name="button" class="increment">+</button>
+                    <button type="button" name="button" class="increment" onclick=${increment}>+</button>
                     <input type="number" name="" class="count-items" value=${product.count}>
                     <button type="button" name="button" class="decrement">-</button>
                 </div>
@@ -82,80 +74,6 @@ function createCartItem(product:productCart) {
 
 
 // increment and decrement
-let allIncrementBtns = document.querySelectorAll('.counter .increment');
-let allDecrementBtns = document.querySelectorAll('.counter .decrement');
-let allInputsCount = document.querySelectorAll(".counter input") ;
-let allDeleteItemBtn = document.querySelectorAll(".delete-item");
-console.log(allDeleteItemBtn);
-
-allIncrementBtns.forEach((btn, i) => {
-    btn.addEventListener("click",increment)
-});
-
-allDecrementBtns.forEach((btn, i) => {
-    btn.addEventListener("click",decrement)
-});
-
-allDeleteItemBtn.forEach((btn, i) => {
-    btn.addEventListener("click",deleteItem)
-    btn.addEventListener("click",function () {
-       console.log("clicked")
-    })
-});
-
-
-
-function increment(e) {
-  let id:string = e.target.parentNode.parentNode.parentNode.id;
-  let parentElement= document.getElementById(id);
-  let input = parentElement.querySelector(`input`);
-
-
-   for(let i=0;i<allProducts.length;i++){
-      if (allProducts[i].id == id) {
-          allProducts[i].count+=1;
-           localStorage.cartElectronicProducts=JSON.stringify(allProducts);
-           input.value = allProducts[i].count;
-           break;
-      }
-   }
-
-}
-
-function decrement(e) {
-  let id = e.target.parentNode.parentNode.parentNode.id;
-  let parentElement= document.getElementById(id);
-  let input = parentElement.querySelector(`input`)
-
-
-   for(let i=0;i<allProducts.length;i++){
-      if (allProducts[i].id == id) {
-          allProducts[i].count-=1;
-           localStorage.cartElectronicProducts=JSON.stringify(allProducts);
-           input.value = allProducts[i].count;
-           break;
-      }
-   }
-
-}
-
-function deleteItem(e) {
-   let id = e.target.parentNode.parentNode.parentNode.id;
-    allProducts = allProducts.filter(ele => ele.id != id);
-    localStorage.cartElectronicProducts=JSON.stringify(allProducts);
-    productsSection.innerHTML='';
-
-    if (localStorage.cartElectronicProducts != undefined) {
-        JSON.parse(localStorage.cartElectronicProducts).forEach((product, i) => {
-             productsSection.innerHTML+=createCartItem(product)
-        });
-
-    }else{
-      alert("the cart is empty");
-    }
-
-
-
-
-
+function increment():void{
+   console.log(true)
 }

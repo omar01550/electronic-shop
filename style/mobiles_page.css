@@ -14,6 +14,25 @@
 
 }
 
+ .mobiles-page .products .mobile{
+   width:250px;
+   min-height: 250px;
+   position: relative;
+   margin:30px;
+   cursor: pointer;
+   transition: 300ms;
+   color: var(--text-color);
+
+
+}
+
+.mobiles-page .products .mobile .mobile-title{
+    font-size: 1.3rem;
+}
+.mobiles-page .products .mobile img{
+
+}
+
 .test{
    width: 300px;
    height: 500px;
