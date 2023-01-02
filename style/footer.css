@@ -9,8 +9,8 @@ footer{
   }
 
   footer .container{
-      padding-top: 90px;
-      padding-bottom: (3)0px;
+      padding-top: 20px;
+      padding-bottom: 20px;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -21,6 +21,8 @@ footer{
 footer .container ul{
    display: flex;
    justify-content: space-between;
+   flex-wrap: wrap;
+
 }
 
 footer .container ul li{
@@ -28,7 +30,29 @@ footer .container ul li{
 }
 
 footer a{
-   color: var(--text-color);
+
    font-weight: bold;
    font-size:1.3rem;
+   color: white;
+}
+
+footer .social-links{
+   width:200px;
+   display: flex;
+   justify-content: space-around;
+   align-items: center;
+   margin-top:20px;
+}
+
+footer .social-links a{
+     color: white;
+     font-size: 2rem;
+
+}
+
+
+footer .logo{
+   margin-top:20px;
+   margin-bottom: 20px;
+   color: white
 }

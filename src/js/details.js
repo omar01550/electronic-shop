@@ -48,8 +48,18 @@ function AddToCart(product) {
     let addToCartBtn = document.querySelector(".add-to-cart");
     addToCartBtn.addEventListener("click", function () {
         addItemToCartArray(product, allCartData);
+
+            console.log("done");
+
     });
 }
+
+let addToCartBtn = document.querySelector(".add-to-cart");
+addToCartBtn.addEventListener("click",function () {
+    handelCartCount();
+    console.log(true);
+})
+
 function addItemToCartArray(product, allCartData) {
     if (allCartData.filter(ele => ele.id == product.id).length == 0) {
         console.log("not found product");
